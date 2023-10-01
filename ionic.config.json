@@ -1,0 +1,7 @@
+{
+  "name": "med-mais-v2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
