@@ -1,7 +1,8 @@
 <ion-header [translucent]="true">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </ion-header>
 
-<ion-content [fullscreen]="true" class="header-bg">
+  <ion-content [fullscreen]="true" class="header-bg">
 
   <figure class="header-logo-position">
     <img src=".\assets\medmais-branco.png" width="160">
@@ -12,29 +13,39 @@
   </figure>
 
   <section class="card-row">
-    <ion-card class="card-bg">
+    <ion-card class="card-bg" routerLink="#">
       <ion-icon name="calendar-number-outline"></ion-icon>
       <ion-card-header>
-        <ion-card-title>Marcar Exame Médico</ion-card-title>
+        <ion-card-title>Agendar exame médico</ion-card-title>
       </ion-card-header>
     </ion-card>
 
-    <ion-card class="card-bg">
+    <ion-card class="card-bg" routerLink="#">
+      <span class="material-symbols-outlined">
+        medication
+        </span>
+      <ion-card-header>
+        <ion-card-title>Agendar Remédios</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card class="card-bg" routerLink="#">
       <ion-icon name="star-outline"></ion-icon>
       <ion-card-header>
         <ion-card-title>Eventos Preferidos</ion-card-title>
       </ion-card-header>
     </ion-card>
 
-    <ion-card class="card-bg">
+    <ion-card class="card-bg" routerLink="contato">
       <ion-icon name="chatbubbles-outline"></ion-icon>
       <ion-card-header>
-        <ion-card-title>Nosso Suporte</ion-card-title>
+        <ion-card-title>Entre em contato</ion-card-title>
       </ion-card-header>
     </ion-card>
   </section>
+  
 
-  <ion-card class="feed-service">
+  <ion-card class="feed-service" routerLink="caminhada-matinal">
     <img src=".\assets\feed-service-post1.jpg" />
     <ion-card-header>
       <ion-card-title>CAMINHADA MATINAL</ion-card-title>
@@ -54,7 +65,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card class="feed-service">
+  <ion-card class="feed-service" routerLink="caminhada-matinal">
     <img src=".\assets\feed-service-post2.jpg" />
     <ion-card-header>
       <ion-card-title>CAMINHADA MATINAL</ion-card-title>
@@ -75,6 +86,3 @@
   </ion-card>
 
 </ion-content>
-
-<ion-toolbar>
-</ion-toolbar>

@@ -1,10 +1,10 @@
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     height: 1px;
     background-color: transparent;
 }
 
-ion-content{
-    --ion-background-color:#f1f1f1;
+ion-content {
+    --ion-background-color: #f1f1f1;
 }
 
 ion-toolbar {
@@ -84,6 +84,14 @@ ion-back-button {
     }
 }
 
+.card-bg *{
+    display: flex;
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
 .acessar-title {
     position: absolute;
     top: 3em;
@@ -96,30 +104,37 @@ ion-back-button {
 .feed-service {
     --background: #fff;
     margin: 2em 1em;
-    ion-button{
-        --padding-start:.3em;
-        --padding-end:.3em;
+
+    ion-button {
+        --padding-start: .3em;
+        --padding-end: .3em;
         margin-bottom: -1em;
         float: right;
     }
-    ion-icon{
+
+    ion-icon {
         font-size: 36px;
     }
-    ion-card-title{
+
+    ion-card-title {
         color: #555454;
     }
 }
 
-.feed-service ion-card-content{
+.feed-service ion-card-content {
     width: 60%;
     display: inline-block;
     justify-content: end;
     margin-top: -2em;
 }
 
-.feed-service .feed-icon{
+.feed-service .feed-icon {
     width: 40%;
     display: inline-block;
     justify-content: end;
     margin-top: -2em;
+}
+
+.material-symbols-outlined {
+    font-size: 60px;
 }

@@ -1,7 +1,3 @@
-::-webkit-scrollbar{
-    height: 1px;
-}
-
 ion-back-button{
     width: 6em;
     height: 8em;
@@ -91,8 +87,8 @@ ion-header {
 .section-inner:nth-child(2){
     display: inline-flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: end;
+    justify-content: end;
 }
 
 
