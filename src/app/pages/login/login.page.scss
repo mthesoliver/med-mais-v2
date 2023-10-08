@@ -1,0 +1,49 @@
+ion-toolbar{
+    --background:#1C4478;
+}
+
+ion-header{
+    box-shadow:none;
+}
+
+ion-back-button{
+    width: 6em;
+    position: absolute;
+    top:20%;
+    left: 0;
+}
+
+.header-logo-position{
+    text-align: center;
+    --background:transparent !important;
+}
+
+ion-card{
+    margin-top: 6em;
+}
+
+.login-card{
+    background: #fff;
+    text-align: center;
+    font-size: 16px;
+    padding: 30px 0;
+    margin: 25% 20px;
+}
+
+.btn-login{
+    margin:12px auto;
+    display: block;
+    position: relative;
+    height: 4em;
+    width: 16em;
+    top: -9em;
+    border: none;
+    --background: #7ED4E1;
+}
+
+.btn-login span{
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 400 !important;
+}

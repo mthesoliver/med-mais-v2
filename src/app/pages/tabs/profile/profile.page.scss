@@ -1,0 +1,119 @@
+::-webkit-scrollbar{
+    height: 1px;
+}
+
+ion-back-button{
+    width: 6em;
+    height: 8em;
+    position: absolute;
+    top:0;
+    left: 0;
+    color: #999;
+}
+
+.page-tittle{
+    color:#7ED4E1 ;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 42px;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    display: block;
+    height:40px;
+}
+
+ion-content{
+    --ion-background-color:#f1f1f1;
+}
+
+ion-toolbar {
+    --background: #f4f4f4;
+}
+
+ion-header {
+    box-shadow: none;
+}
+
+.header-bg {
+    width: 100%;
+
+    ion-icon {
+        font-size: 52px;
+        color: #c3c3c3;
+    }
+}
+
+.header-logo-position {
+    position: relative;
+    top: 0em;
+    text-align: center;
+}
+
+.acessar-title {
+    position: absolute;
+    top: 3em;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    font-size: 52px;
+}
+
+
+ion-avatar{
+    width: 130px;
+    height: 130px;
+    margin-block: 30px;
+    margin-inline: auto;
+}
+
+
+
+/*FORM*/
+mat-form-field{
+    --mdc-filled-text-field-container-color:transparent;
+}
+
+ion-button{
+    --background:transparent;
+    --color: #7ED4E1;
+    --box-shadow:none;
+    span{
+        font-size: 12px;
+        letter-spacing: .5px;
+        text-transform: none !important;
+    }
+}
+
+.btn-login{
+    height: 4em;
+    width: 16em;
+    border: none;
+    --background: #7ED4E1;
+}
+
+.btn-login span{
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 400 !important;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+ion-button{
+    color:#999;
+    height: 6vh;
+    span{
+        font-size: 16px;
+    }
+}
+
+mat-icon{
+    color: #C8C8C8;
+}

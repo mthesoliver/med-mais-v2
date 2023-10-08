@@ -1,0 +1,97 @@
+ion-toolbar {
+    --background: #1C4478;
+}
+
+ion-header {
+    box-shadow: none;
+}
+
+ion-back-button {
+    width: 6em;
+    position: absolute;
+    top: 20%;
+    left: 0;
+}
+
+.header-logo-position {
+    text-align: center;
+    --background: transparent !important;
+}
+
+mat-form-field{
+    --mdc-filled-text-field-container-color:#fff;
+    width: 100% !important;
+    margin-top: -10px !important;
+}
+
+ion-content {
+    section {
+        margin: auto 35px;
+        padding: 20px 10px;
+        display: block;
+    }
+
+    h2 {
+        font-size: 30px;
+        line-height: 36px;
+        letter-spacing: .75px;
+        font-weight: 600;
+    }
+
+    p {
+        color: #D1D5DB;
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 2em;
+    }
+}
+
+.btn-login{
+    height: 4em;
+    width: 100%;
+    border: none;
+    --background: #7ED4E1;
+}
+
+.btn-login span{
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 400 !important;
+}
+
+button#addPessoa{
+    border-radius: 8px;
+    border: 1px solid #fff;
+}
+
+#addPessoa{
+    width: 100%;
+    margin-bottom: 1em;
+
+    span{
+    position: relative;
+    top: -1em;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+    }
+
+    mat-icon{
+        color: #fff;
+        font-size: 32px;
+        overflow: visible;
+        position: relative;
+        top:-.12em;
+    }
+} 
+
+
+button:disabled{
+    opacity: .6 !important;
+}
+
+#remove mat-icon{
+    color:rgb(255, 80, 80);
+}

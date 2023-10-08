@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-back-button icon="chevron-back-outline"></ion-back-button>
+
+    <figure class="header-logo-position">
+      <img src=".\assets\medmais-branco.png" width="160">
+    </figure>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-segment [(ngModel)]="type" class="select-form">
+    <ion-segment-button value="responsavel">
+      <ion-label>Responsável</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="idoso">
+      <ion-label>Idoso</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+
+  <ion-card [ngSwitch]="type" class="login-card">
+
+  <ion-card-content *ngSwitchCase="'responsavel'">
+    <ion-card-content>
+      Faça seu cadastro como responsável
+    </ion-card-content>
+    <app-cadastro-form></app-cadastro-form>
+  </ion-card-content>
+
+  <ion-card-content *ngSwitchCase="'idoso'">
+    <ion-card-content>
+      Faça seu cadastro como idoso
+    </ion-card-content>
+    <app-cadastro-form-idoso></app-cadastro-form-idoso>
+  </ion-card-content>
+
+</ion-card>
+
+</ion-content>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "auth-medmais": {
+      "hosting": {
+        "app": [
+          "auth-medmais"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "auth-medmais"
+  }
+}

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col">
+    <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Digite seu nome" required>
+      <mat-error *ngIf="registerForm.controls['nome'].hasError('required')">
+        Nome é<strong> obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Seu CPF</mat-label>
+      <input matInput placeholder="000.000.000-00" formControlName="cpf" mask="000.000.000-00" required>
+      <mat-error *ngIf="registerForm.controls['cpf'].hasError('required')">
+        CPF é<strong> obrigatório</strong>
+      </mat-error>
+      <mat-error *ngIf="registerForm.controls['cpf'].getError('cpfNotValid')">
+        CPF não é<strong> válido!</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <ion-button>
+      <span>Esqueci a minha senha</span>
+    </ion-button>
+
+    <ion-button id="open-loading" class="btn-login">
+      <ion-loading trigger="open-loading" message="Carregando" duration="2000"></ion-loading>
+      <span>ENTRAR</span>
+    </ion-button>
+  </form>
+  </div>
+</div>

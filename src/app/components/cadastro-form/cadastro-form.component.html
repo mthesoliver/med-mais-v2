@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col">
+    <form [formGroup]="registerForm" novalidate (ngSubmit)="registroUser()">
+      <mat-form-field>
+        <mat-label>Seu E-mail</mat-label>
+        <input matInput placeholder="exemplo@email.com" formControlName="email" required>
+        <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+          Email é<strong> obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Seu CPF</mat-label>
+        <input matInput placeholder="000.000.000-00" formControlName="cpf" mask="000.000.000-00" required>
+        <mat-error *ngIf="registerForm.controls['cpf'].hasError('required')">
+          CPF é<strong> obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls['cpf'].getError('cpfNotValid')">
+          CPF não é<strong> válido!</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Nome Completo</mat-label>
+        <input matInput placeholder="Digite seu nome" formControlName="nome" required>
+        <mat-error *ngIf="registerForm.controls['nome'].hasError('required')">
+          Nome é<strong> obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Selecione a data</mat-label>
+        <input matInput type="date" [(ngModel)]="selectedDate"  name="selectedDate" formControlName="dataNascimento" required >
+        <mat-error *ngIf="registerForm.controls['dataNascimento'].hasError('required')">
+          Data de nascimento é<strong> obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Telefone</mat-label>
+        <input matInput placeholder="00 00000-0000" mask="00 00000-0000" formControlName="telefone" required>
+        <mat-error *ngIf="registerForm.controls['telefone'].hasError('required')">
+          Telefone é<strong> obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Digite uma senha</mat-label>
+        <input matInput placeholder="Digite uma senha" [type]="hide ? 'password' : 'text'" formControlName="password"
+          required>
+        <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+          Senha é<strong> obrigatório</strong>
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Confirme a senha</mat-label>
+        <input matInput placeholder="Confirme a senha" [type]="hide ? 'password' : 'text'" formControlName="passwordValid" required>
+        <mat-error *ngIf="registerForm.controls['passwordValid'].hasError('required')">
+          Senha de confirmação é<strong> obrigatória</strong>
+        </mat-error>
+        <mat-error>
+          As senhas<strong> não são iguais</strong>
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <ion-button class="btn-login" type="submit" [@moveDown]="buttonState" [disabled]="!registerForm.valid">
+        <span>CADASTRAR</span>
+      </ion-button>
+    </form>
+  </div>
+</div>

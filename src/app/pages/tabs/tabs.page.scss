@@ -1,0 +1,21 @@
+
+ion-tab-bar {
+    --background:#fff !important;
+    ion-icon{
+        color:#404040;
+    }
+    ion-label{
+        color:#404040;
+        text-transform: uppercase;
+        font-size: 10px;
+    }
+}
+
+.tab-center{
+    --background:#1C4478!important;
+    ion-icon{
+    font-size: 30px;
+    color: #fff;
+    }
+}
+

@@ -1,0 +1,146 @@
+::-webkit-scrollbar{
+    height: 1px;
+}
+
+ion-back-button{
+    width: 6em;
+    height: 8em;
+    position: absolute;
+    top:0;
+    left: 0;
+    color: #999;
+}
+
+.page-tittle{
+    color:#7ED4E1 ;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 42px;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    display: block;
+    height:40px;
+}
+
+ion-content{
+    --ion-background-color:#f1f1f1;
+}
+
+ion-toolbar {
+    --background: #f4f4f4;
+}
+
+ion-header {
+    box-shadow: none;
+}
+
+.header-bg {
+    width: 100%;
+
+    ion-icon {
+        font-size: 52px;
+        color: #c3c3c3;
+    }
+}
+
+.header-logo-position {
+    position: relative;
+    top: 0em;
+    text-align: center;
+}
+
+.acessar-title {
+    position: absolute;
+    top: 3em;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    font-size: 52px;
+}
+
+
+.section{
+    display: flex;
+    margin-bottom:20px;
+    background-color: #ededed;
+    padding-block: 2em;
+    padding-inline: 2em;
+    text-transform: uppercase;
+    color: #1C4478;
+    p{
+    font-size: 14px;
+    }
+    p:nth-child(3){
+        margin-top: .6rem;
+        margin-left: 2.6rem;
+    }
+    span{
+    font-size: 64px;
+    line-height: 32px;
+    font-weight: 900;
+    }
+}
+
+.section-inner{
+    display: inline-flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.section-inner:nth-child(2){
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.section:nth-child(2){
+    .section-inner{
+        display: flex;
+        justify-content: center;
+
+    }
+    span.responsavel{
+        font-size: 16px;
+        line-height: 10px;
+        font-weight: 900;
+    }
+    
+    p:nth-child(3){
+        margin-top: .6rem;
+        margin-left: 0rem;
+    }
+}
+
+
+.section:nth-child(3){
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    p{
+        color:#202020;
+        text-transform: initial;
+        line-height: 10px;
+    }
+    .section-inner{
+        display: flex;
+        justify-content: center;
+
+    }    
+    p:nth-child(3){
+        margin-top: .6rem;
+        margin-left: 0rem;
+    }
+}
+
+
+ion-icon{
+background-color:#1F7700 ;
+fill: #fff;
+padding: .4em;
+border-radius: 50%;
+}
+
+

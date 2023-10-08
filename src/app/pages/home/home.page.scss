@@ -1,0 +1,59 @@
+.slogan {
+    font-size: 56px;
+    line-height: 56px;
+    color: #fff;
+    margin-top: 2em;
+    margin-left: 10vw;
+    margin-bottom: 1.6em;
+}
+
+figure img{
+    margin-top: 3em;
+    width: 14em;
+}
+
+.btn-login{
+    margin:12px auto;
+    display: block;
+    height: 4em;
+    width: 80vw;
+    border: none;
+    --background: #7ED4E1;
+}
+
+.btn-login span{
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 400 !important;
+}
+
+.btn-login-2{
+    margin:12px auto;
+    display: block;
+    height: 4em;
+    width: 80vw;
+    border-radius: 6px;
+    border: 1px solid #fff;
+    --background:transparent;
+}
+
+.btn-login-2 span{
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 400 !important;
+}
+
+.btn-cadastrar{
+    margin:12px auto;
+    height: 2em;
+    width: 80vw;
+    --background:transparent;
+    --box-shadow:none;
+}
+
+.btn-cadastrar span{
+    font-size: 14px;
+    font-weight: 400;
+}

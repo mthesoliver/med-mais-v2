@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-back-button icon="chevron-back-outline"></ion-back-button>
+
+    <figure class="header-logo-position">
+      <img src=".\assets\medmais-branco.png" width="160">
+    </figure>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section>
+    <h2>Adicione a pessoa responsável</h2>
+    <p>Para prosseguir com o uso do nosso aplicativo, é necessário adicionar um email do responsável. Isso é importante
+      por algumas razões. Primeiramente, o email do responsável nos ajuda a garantir que estamos fornecendo uma
+      experiência segura para todos os usuários, especialmente quando se trata de pessoas mais idosas.</p>
+
+      <mat-form-field>
+        <mat-label>Adicionar Pessoa </mat-label>
+        <input matInput placeholder="exemplo@email.com" [formControl]="email" type="email" required>
+      </mat-form-field>
+
+      <mat-form-field *ngFor="let control of emailFormArray.controls; let i = index">
+        <mat-label>Adicionar Pessoa {{ i + 2 }}</mat-label>
+        <input matInput placeholder="exemplo@email.com" [formControl]="emailOptional" type="email">
+        <button id="remove" mat-icon-button matSuffix [attr.aria-label]="'Remover'" (click)="removePessoa(i)">
+          <mat-icon>remove_circle</mat-icon>
+        </button>
+      </mat-form-field>
+      
+      <button id="addPessoa" mat-icon-button matSuffix [attr.aria-label]="'Adicionar mais'" (click)="addPessoa()" [disabled]="isAddButtonDisabled()">
+        <span>Adicionar mais pessoas</span>
+        <mat-icon>add_circle</mat-icon>
+      </button>
+
+      <ion-button class="btn-login">
+        <span>ENVIAR</span>
+      </ion-button>
+
+  </section>
+
+</ion-content>

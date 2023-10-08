@@ -1,0 +1,125 @@
+::-webkit-scrollbar{
+    height: 1px;
+    background-color: transparent;
+}
+
+ion-content{
+    --ion-background-color:#f1f1f1;
+}
+
+ion-toolbar {
+    --background: transparent;
+}
+
+ion-header {
+    box-shadow: none;
+}
+
+.header-img img {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 100%;
+    height: 26em;
+}
+
+.header-bg {
+    width: 100%;
+
+    ion-icon {
+        font-size: 52px;
+        color: #c3c3c3;
+    }
+}
+
+ion-back-button {
+    width: 6em;
+    position: absolute;
+    top: 20%;
+    left: 0;
+}
+
+.header-logo-position {
+    position: relative;
+    top: 0em;
+    text-align: center;
+}
+
+.card-row {
+    margin-top: 10em;
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+
+    ion-card {
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 12em;
+        color: #8B8B8B;
+    }
+
+    ion-card-title {
+        text-align: center;
+        font-size: 16px;
+        line-height: 24px;
+        color: #8B8B8B;
+        text-transform: uppercase;
+    }
+
+    ion-icon {
+        color: #8B8B8B;
+    }
+
+    .card-bg {
+        --background: #fff;
+    }
+}
+
+.acessar-title {
+    position: absolute;
+    top: 3em;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    font-size: 52px;
+}
+
+.feed-service {
+    --background: #fff;
+    margin: 2em 1em;
+    ion-button{
+        --padding-start:.3em;
+        --padding-end:.3em;
+        margin-bottom: -1em;
+        float: right;
+    }
+    ion-icon{
+        font-size: 36px;
+    }
+    ion-card-title{
+        color: #555454;
+    }
+}
+
+.feed-service ion-card-content{
+    width: 60%;
+    display: inline-block;
+    justify-content: end;
+    margin-top: -2em;
+}
+
+.feed-service .feed-icon{
+    width: 40%;
+    display: inline-block;
+    justify-content: end;
+    margin-top: -2em;
+}

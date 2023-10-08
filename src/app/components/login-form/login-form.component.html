@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col">
+    <form [formGroup]="loginForm" novalidate (ngSubmit)="loginUser()">
+    <mat-form-field>
+      <input matInput placeholder="exemplo@email.com" formControlName="email" required>
+      <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+        Email é<strong> obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Digite uma senha</mat-label>
+      <input matInput placeholder="Digite uma senha" [type]="hide ? 'password' : 'text'" formControlName="password"
+        required>
+      <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+        Senha é<strong> obrigatório</strong>
+      </mat-error>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <ion-button>
+      <span>Esqueci a minha senha</span>
+    </ion-button>
+
+    <ion-button class="btn-login" type="submit" [disabled]="!loginForm.valid">
+      <span>ENTRAR</span>
+    </ion-button>
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-toolbar>
+
+  <ion-back-button icon="chevron-back-outline" defaultHref="tabs/home-feed"></ion-back-button>
+
+  <figure class="header-logo-position">
+    <img src=".\assets\medmais-cor.png" width="160">
+  </figure>
+  <ion-label class="page-tittle">
+    Perfil
+  </ion-label>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true" class="header-bg">
+
+  <ion-avatar>
+    <img src="./assets/user-uploads/profile/profile-img.jpg">
+  </ion-avatar>
+
+  <form class="form-field">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome Completo</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Seu CPF</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput>
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+      <mat-label>Seu email</mat-label>
+      <input matInput>
+      <button  matSuffix mat-icon-button aria-label="Clear" >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Telefone</mat-label>
+      <input matInput>
+      <button  matSuffix mat-icon-button aria-label="Clear" >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-form-field>
+  
+    <ion-button>
+      <span>REDEFINIR SENHA</span>
+    </ion-button>
+    
+  </form>
+  
+
+</ion-content>
+

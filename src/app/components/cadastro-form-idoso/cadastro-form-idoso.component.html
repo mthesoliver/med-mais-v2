@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col">
+    <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Seu CPF</mat-label>
+        <input matInput placeholder="000.000.000-00" formControlName="cpf" mask="000.000.000-00" required>
+        <mat-error *ngIf="registerForm.controls['cpf'].hasError('required')">
+          CPF é<strong> obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls['cpf'].getError('cpfNotValid')">
+          CPF não é<strong> válido!</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Nome Completo</mat-label>
+        <input matInput placeholder="Digite seu nome" formControlName="nome" required>
+        <mat-error *ngIf="registerForm.controls['nome'].hasError('required')">
+          Nome é<strong> obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Selecione a data</mat-label>
+        <input matInput type="date" [(ngModel)]="selectedDate" name="selectedDate" formControlName="dataNascimento" required>
+        <mat-error>
+          Data de nascimento é<strong> obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Telefone</mat-label>
+        <input matInput placeholder="00 00000-0000" mask="00 00000-0000" formControlName="telefone" required>
+        <mat-error *ngIf="registerForm.controls['telefone'].hasError('required')">
+          Telefone é<strong> obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+      
+      <ion-button class="btn-login" type="submit" [@moveDown]="buttonState" [disabled]="!registerForm.valid">
+        <span>CADASTRAR</span>
+      </ion-button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  
+
+  <figure>
+    <img src=".\assets\medmais-branco.png">
+</figure>
+
+<div class="slogan">
+    <span>
+        <strong>CUIDAR</strong><br>
+        <span>AGORA É</span> <br>
+        <strong>+ FÁCIL!</strong>
+    </span>
+</div>
+
+<ion-button expand="block" class="btn-login" (click)="onClick('login-idoso')" data-target="login-idoso">
+  <span>ENTRAR COMO IDOSO</span>
+</ion-button>
+
+<ion-button expand="block" class="btn-login-2" (click)="onClick('login')" data-target="login">
+  <span>ENTRAR COMO RESPONSÁVEL</span>
+</ion-button>
+
+<ion-button expand="block" class="btn-cadastrar" (click)="onClick('cadastrar')" data-target="cadastrar">
+  <span>CADASTRAR</span>
+</ion-button>
+
+</ion-content>
+
+

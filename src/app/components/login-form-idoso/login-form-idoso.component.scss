@@ -1,0 +1,32 @@
+mat-form-field{
+    --mdc-filled-text-field-container-color:transparent;
+    width: 80% !important;
+}
+
+ion-button{
+    --background:transparent;
+    --color: #7ED4E1;
+    --box-shadow:none;
+    span{
+        font-size: 12px;
+        letter-spacing: .5px;
+        text-transform: none !important;
+    }
+}
+
+.btn-login{
+    display: block;
+    margin: auto;
+    position: relative;
+    height: 4em;
+    width: 16em;
+    border: none;
+    --background: #7ED4E1;
+}
+
+.btn-login span{
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 400 !important;
+}
