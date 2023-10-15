@@ -1,0 +1,117 @@
+ion-back-button {
+    width: 6em;
+    height: 8em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #999;
+}
+
+.page-tittle {
+    color: #7ED4E1;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 42px;
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    display: block;
+    height: 40px;
+}
+
+ion-content {
+    --ion-background-color: #f1f1f1;
+}
+
+ion-toolbar {
+    --background: #f4f4f4;
+}
+
+ion-header {
+    box-shadow: none;
+}
+
+.header-bg {
+    width: 100%;
+
+    ion-icon {
+        font-size: 52px;
+        color: #c3c3c3;
+    }
+}
+
+.header-logo-position {
+    position: relative;
+    top: 0em;
+    text-align: center;
+}
+
+.table-meds {
+    display: flex;
+    flex-direction: row;
+
+    mat-table {
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+    }
+
+    mat-header-row{
+        display: none;
+    }
+
+    mat-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #ededed;
+        height: 10vh;
+        padding-block: 20px;
+        margin-block: 10px;
+        flex:1 3;
+    }
+
+    mat-cell {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: visible;
+    }
+
+    mat-cell:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    h4{
+        text-transform: uppercase;
+        color: #1C4478;
+        font-size: 18px;
+        margin-bottom: 3%;
+    }
+
+    span {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 200px;
+        strong{
+            margin-right: 3px;
+            font-size: 12px;
+            line-height: 22px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+section *{
+    border: none!important;
+}
+
+ion-button{
+    --background:#1C4478;
+    width: 36vw;
+}

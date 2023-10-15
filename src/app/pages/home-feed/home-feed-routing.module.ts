@@ -17,6 +17,18 @@ const routes: Routes = [
     path: 'contato', // Defina a rota para o seu componente
     loadChildren:()=> import('../tabs/contato/contato.module').then(m => m.ContatoPageModule)
   },
+  {
+    path: 'eventos-favoritos',
+    loadChildren: () => import('./eventos-favoritos/eventos-favoritos.module').then( m => m.EventosFavoritosPageModule)
+  },
+  {
+    path: 'remedios-alarmes',
+    loadChildren: () => import('./remedios-alarmes/remedios-alarmes.module').then( m => m.RemediosAlarmesPageModule)
+  },
+  {
+    path: 'agendar-exames',
+    loadChildren: () => import('./agendar-exames/agendar-exames.module').then( m => m.AgendarExamesPageModule)
+  },
 ];
 
 @NgModule({

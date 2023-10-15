@@ -46,5 +46,29 @@ ion-header {
     text-align: center;
 }
 
+.espec-container{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    padding: 10px 30px;
+    margin-block: 10px;
+    width: 100%;
+    background: #ededed;
+    .espec-inner{
+        display: flex;
+    }
+    h4{
+        color:#1C4478;
+        font-weight: 900;
+        font-size: 18px;
+        margin-top: 10%;
+    }
+    ion-button{
+        --background:#1C4478;
+        width:30vw;
+    }
+}
+
 
 

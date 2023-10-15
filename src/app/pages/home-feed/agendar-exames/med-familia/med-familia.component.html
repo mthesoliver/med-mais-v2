@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-toolbar>
+
+  <ion-back-button icon="chevron-back-outline" defaultHref="tabs/home-feed"></ion-back-button>
+
+  <figure class="header-logo-position">
+    <img src=".\assets\medmais-cor.png" width="160">
+  </figure>
+  <ion-label class="page-tittle">
+    Especialidades
+  </ion-label>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true" class="header-bg">
+
+  <section class="table-meds">
+    <mat-table [dataSource]="medicos">
+      <ng-container matColumnDef="nomeMedico">
+        <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let medicos">
+          <h4> {{ medicos.nomeMedico }}</h4>
+          <span> <strong>Área:</strong> {{ medicos.especialidades.especialidade }}</span>
+          <span> <strong>Horário:</strong> {{ medicos.horarioAtendimento }}</span>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let medicos">
+          <ion-button>Agendar</ion-button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row matRipple *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+  </section>
+
+
+</ion-content>

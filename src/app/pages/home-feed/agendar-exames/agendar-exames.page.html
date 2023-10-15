@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-toolbar>
+
+  <ion-back-button icon="chevron-back-outline" defaultHref="tabs/home-feed"></ion-back-button>
+
+  <figure class="header-logo-position">
+    <img src=".\assets\medmais-cor.png" width="160">
+  </figure>
+  <ion-label class="page-tittle">
+    Especialidades
+  </ion-label>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true" class="header-bg">
+
+  <section>
+  <div class="espec-container">
+    <div class="espec-inner">
+      <h4>ENDOCRIONOLOGISTA</h4>
+    </div>
+      <div class="espec-inner">
+      <ion-button routerLink="endocrinologistas">Agendar</ion-button>
+    </div>
+  </div>
+
+  <div class="espec-container">
+    <div class="espec-inner">
+      <h4>ORTOPEDISTA</h4>
+    </div>
+      <div class="espec-inner">
+      <ion-button routerLink="ortopedistas">Agendar</ion-button>
+    </div>
+  </div>
+
+  <div class="espec-container">
+    <div class="espec-inner">
+      <h4>ONCOLOGISTA</h4>
+    </div>
+      <div class="espec-inner">
+      <ion-button routerLink="oncologistas">Agendar</ion-button>
+    </div>
+  </div>
+
+  <div class="espec-container">
+    <div class="espec-inner">
+      <h4>DERMATOLOGISTA</h4>
+    </div>
+      <div class="espec-inner">
+      <ion-button routerLink="dermatologistas">Agendar</ion-button>
+    </div>
+  </div>
+
+  <div class="espec-container">
+    <div class="espec-inner">
+      <h4>REUMATOLOGISTA</h4>
+    </div>
+      <div class="espec-inner">
+      <ion-button routerLink="reumatologistas">Agendar</ion-button>
+    </div>
+  </div>
+
+  <div class="espec-container">
+    <div class="espec-inner">
+      <h4>MÉDICO DA FAMÍLIA</h4>
+    </div>
+      <div class="espec-inner">
+      <ion-button routerLink="med-familia">Agendar</ion-button>
+    </div>
+  </div>
+</section>
+
+
+</ion-content>
+
+
+
+<!--<mat-table [dataSource]="medicos" class="mat-elevation-z8">
+  <ng-container matColumnDef="nomeMedico">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let medicos"><h4>{{ medicos.especialidades.especialidade }}</h4></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let medicos">
+      <ion-button>Agendar</ion-button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row matRipple *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>-->
