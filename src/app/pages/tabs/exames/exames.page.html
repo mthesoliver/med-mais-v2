@@ -15,4 +15,29 @@
 
 <ion-content [fullscreen]="true" class="header-bg">
 
+  <section class="table-meds">
+
+    <mat-table [dataSource]="medicos">
+      <ng-container matColumnDef="nomeMedico">
+        <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let medicos">
+          <div class="espec-inner">
+            <p class="date-info">29/06/2020 as 20:30</p>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vestibulum quam sit amet nisi lacinia commodo.</p>
+            <span> <strong>Médico:</strong> {{ medicos.nomeMedico }}</span>
+            <span> <strong>Exame:</strong> {{ medicos.especialidades.especialidade }}</span>
+          </div>
+          <ion-button>Baixar agora
+            <ion-icon slot="end" name="download-outline" size="small" color="white"></ion-icon>
+          </ion-button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row matRipple *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+
+  </section>
+
 </ion-content>

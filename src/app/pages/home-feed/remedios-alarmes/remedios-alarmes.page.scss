@@ -20,7 +20,7 @@ ion-back-button{
 }
 
 ion-content{
-    --ion-background-color:#f1f1f1;
+    --ion-background-color:#fff;
 }
 
 ion-toolbar {
@@ -47,4 +47,60 @@ ion-header {
 }
 
 
+
+.espec-container{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 40px;
+    margin-block: 10px;
+    width: 100%;
+    background: #ededed;
+    .espec-inner{
+        display: inline-flex;
+        flex-direction: column;
+        width: 60%;
+        color: #202020;
+    }
+    .espec-inner:nth-child(2){
+        width: 40%;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    h4{
+        color:#1C4478;
+        font-weight: 900;
+        font-size: 36px;
+        margin-top: 10%;
+    }
+    ion-button{
+        --background:#1C4478;
+        width:30vw;
+    }
+}
+
+ion-toggle{
+    transform: scale(2);
+}
+
+ion-icon{
+    font-size: 36px!important;
+}
+
+ion-fab-button{
+    --background:#1C4478;
+    height: 80px;
+    width: 80px;
+}
+
+section{
+    height:65vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    box-shadow: inset 1px 0 12px 3px rgba(0,0,0,0.2);
+    background-color:#f1f1f1;
+}
 

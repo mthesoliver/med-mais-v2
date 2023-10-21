@@ -15,4 +15,25 @@
 
 <ion-content [fullscreen]="true" class="header-bg">
 
+  <section>
+
+    <div class="espec-container" *ngFor="let item of getOrderedDivs()">
+      <div class="espec-inner">
+        <h4>{{ item.time }}</h4>
+        <span> <strong>Todos os dias</strong></span>
+        <span> <strong>Remédio:</strong> {{ item.remedio }}</span>
+      </div>
+      <div class="espec-inner">
+        <ion-toggle [(ngModel)]="item.alarmeAtivado"></ion-toggle>
+      </div>
+    </div>
+
+  </section>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add-outline" color="white"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>
