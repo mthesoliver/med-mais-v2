@@ -14,6 +14,20 @@ export class RemediosAlarmesPage implements OnInit {
     { time: '16:10', alarmeAtivado: true, remedio: 'Seu remédio 4' },
   ];
 
+
+  public alertButtons = ['Salvar novo alarme'];
+  public alertInputs = [
+    {
+      placeholder: 'Nome do remédio',
+    },
+    {
+      type: 'time',
+      placeholder: 'Horário',
+    },
+  ];
+
+
+
   constructor() { }
 
   ngOnInit() {
@@ -27,5 +41,7 @@ export class RemediosAlarmesPage implements OnInit {
       return 0;
     });
   }
+
+  
 
 }

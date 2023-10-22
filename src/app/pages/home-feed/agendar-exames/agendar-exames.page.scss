@@ -51,12 +51,17 @@ ion-header {
     flex-direction: row;
     justify-content:space-between;
     align-items: center;
-    padding: 10px 30px;
+    padding: 10px 30px !important;
     margin-block: 10px;
-    width: 100%;
+    width: 100% !important;
     background: #ededed;
     .espec-inner{
         display: flex;
+        width: 70% !important;
+    }
+    .espec-inner:nth-child(2){
+        display: flex;
+        width: 30% !important;
     }
     h4{
         color:#1C4478;
