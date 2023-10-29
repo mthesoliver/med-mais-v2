@@ -4,6 +4,7 @@ import { MatTableModule } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { Medicos } from 'src/app/models/medicos';
 import { ListarMedicosService } from 'src/app/services/listar-medicos.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-endocrinologistas',
@@ -12,11 +13,13 @@ import { ListarMedicosService } from 'src/app/services/listar-medicos.service';
   standalone:true,
   imports:[
     IonicModule,
-    MatTableModule
+    MatTableModule,
+    CommonModule
   ]
 })
 export class EndocrinologistasComponent  implements OnInit {
-
+  
+  loadingData: boolean = false;
   medicos: Observable<Medicos[]>;
   displayedColumns= ['nomeMedico', 'actions'];
 
@@ -24,6 +27,17 @@ export class EndocrinologistasComponent  implements OnInit {
     this.medicos = this.medserv.listarTodasEspecialidades("/especialidade?especialidade=Endocrinologista")
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.medserv.loadingData.subscribe((carregada) => {
+      this.loadingData = carregada;
+    });
+}
+
+handleRefresh(event:any) {
+  setTimeout(() => {
+    this.ngOnInit();
+    event.target.complete();
+  }, 1000);
+}
 
 }

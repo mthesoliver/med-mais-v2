@@ -10,15 +10,26 @@ import { ListarMedicosService } from 'src/app/services/listar-medicos.service';
 })
 export class ExamesPage implements OnInit {
 
+  loadingData: boolean = false;
   medicos: Observable<Medicos[]>;
-  displayedColumns= ['nomeMedico'];
+  displayedColumns = ['nomeMedico'];
 
-  constructor(private medserv:ListarMedicosService) { 
+  constructor(private medserv: ListarMedicosService) {
     this.medicos = this.medserv.listarMedicosExams("/todos")
   }
 
 
   ngOnInit() {
-  }
+    this.medserv.loadingData.subscribe((carregada) => {
+      this.loadingData = carregada;
+    });
+}
+
+handleRefresh(event:any) {
+  setTimeout(() => {
+    this.ngOnInit();
+    event.target.complete();
+  }, 1000);
+}
 
 }

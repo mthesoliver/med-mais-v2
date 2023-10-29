@@ -4,6 +4,11 @@
 
   <ion-content [fullscreen]="true" class="header-bg">
 
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" [pullFactor]=".25" [pullMin]="100" [pullMax]="100">
+      <ion-refresher-content pullingIcon="" refreshingSpinner="circles" refreshingText="Atualizando...">
+      </ion-refresher-content>
+    </ion-refresher>
+
   <figure class="header-logo-position">
     <img src=".\assets\medmais-branco.png" width="160">
   </figure>

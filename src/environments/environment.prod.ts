@@ -7,5 +7,5 @@ export const environment = {
     authDomain: 'auth-medmais.firebaseapp.com',
     messagingSenderId: '897242677435',
   },
-  production: false,
+  production: true,
 };

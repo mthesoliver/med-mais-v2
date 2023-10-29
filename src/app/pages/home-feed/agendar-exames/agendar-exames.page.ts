@@ -14,4 +14,11 @@ export class AgendarExamesPage implements OnInit {
   ngOnInit() {
   }
 
+  handleRefresh(event:any) {
+    setTimeout(() => {
+      this.ngOnInit();
+      event.target.complete();
+    }, 1000);
+  }
+
 }

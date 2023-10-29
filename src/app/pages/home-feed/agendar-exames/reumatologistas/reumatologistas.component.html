@@ -5,6 +5,8 @@
 
   <ion-back-button icon="chevron-back-outline" defaultHref="tabs/home-feed"></ion-back-button>
 
+  <ion-progress-bar type="indeterminate" *ngIf="loadingData"></ion-progress-bar>
+
   <figure class="header-logo-position">
     <img src=".\assets\medmais-cor.png" width="160">
   </figure>
@@ -14,6 +16,11 @@
 </ion-toolbar>
 
 <ion-content [fullscreen]="true" class="header-bg">
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" [pullFactor]=".25" [pullMin]="100" [pullMax]="100">
+    <ion-refresher-content pullingIcon="" refreshingSpinner="circles" refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
 
   <section class="table-meds">
     <mat-table [dataSource]="medicos">

@@ -1,10 +1,14 @@
 const PROXY_CONFIG = [
     {
         context: ['/medicos'],
-        target: 'http://localhost:8080/',
-        secure: false,
-        loglevel: 'debug'
+        target: 'https://spring-test-api-39e777ec7215.herokuapp.com/',
+        secure: true,
+        changeOrigin: true,
+        pathRewrite:{ "^/" : "" }
     }
 ];
 
 module.exports = PROXY_CONFIG;
+
+
+//
