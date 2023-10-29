@@ -11,6 +11,8 @@ export const environment = {
     authDomain: 'auth-medmais.firebaseapp.com',
     messagingSenderId: '897242677435',
   },
+  
+  springAPI: "http://localhost:5000/medicos",
   production: false,
 };
 

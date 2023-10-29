@@ -7,5 +7,6 @@ export const environment = {
     authDomain: 'auth-medmais.firebaseapp.com',
     messagingSenderId: '897242677435',
   },
+  springAPI: "https://spring-test-api-39e777ec7215.herokuapp.com/medicos",
   production: true,
 };

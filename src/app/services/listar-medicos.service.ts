@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Medicos } from '../models/medicos';
 import { BehaviorSubject, finalize, first, map } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { BehaviorSubject, finalize, first, map } from 'rxjs';
 export class ListarMedicosService {
 
   loadingData: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  private readonly springAPI = "/medicos";
+  private readonly springAPI = environment.springAPI;
+ // private readonly springAPI = "http://localhost:5000/medicos"
 
   constructor(private http: HttpClient) { }
 

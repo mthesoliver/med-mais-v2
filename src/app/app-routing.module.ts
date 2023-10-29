@@ -31,12 +31,12 @@ const routes: Routes = [
   {
     path: 'home-feed',
     loadChildren: () => import('./pages/home-feed/home-feed.module').then(m => m.HomeFeedPageModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
 ];
 
