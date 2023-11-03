@@ -21,6 +21,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
+import { NgCalendarModule  } from 'ionic6-calendar';
 
 registerLocaleData(localePt, 'pt'); // Registre o locale
 
@@ -35,7 +36,8 @@ registerLocaleData(localePt, 'pt'); // Registre o locale
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgCalendarModule
   ],
   providers: [
     AuthenticationService,

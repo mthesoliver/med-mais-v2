@@ -46,8 +46,6 @@ ion-header {
     text-align: center;
 }
 
-
-
 .espec-container{
     display: flex;
     flex-direction: row;
@@ -84,16 +82,6 @@ ion-header {
 
 ion-toggle{
     transform: scale(2);
-}
-
-ion-icon{
-    font-size: 36px!important;
-}
-
-ion-fab-button{
-    --background:#1C4478;
-    height: 80px;
-    width: 80px;
 }
 
 section{

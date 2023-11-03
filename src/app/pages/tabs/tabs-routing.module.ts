@@ -29,6 +29,7 @@ const routes: Routes = [
         loadChildren:()=> import('./agenda/agenda.module').then(m => m.AgendaPageModule)
       },
     ]
+    
   }
 ]
 

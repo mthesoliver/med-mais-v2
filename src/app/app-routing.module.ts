@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth-guard.guard';
+import { MyCalendarComponent } from './pages/home-feed/agendar-exames/calendar/mycalendar.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,12 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule),
     //canActivate: [AuthGuard]
+    
   },
+  {
+    path: 'calendar',
+    component: MyCalendarComponent,
+  }
 ];
 
 @NgModule({

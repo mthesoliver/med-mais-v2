@@ -24,23 +24,28 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+@import 'swiper/css';
+
 
 
 /*Alert Modal*/
 .alert-title.sc-ion-alert-md {
-    color:#1C4478 !important;
+    color: #1C4478 !important;
 }
+
 .alert-input.sc-ion-alert-md {
-    color: #000!important;
+    color: #000 !important;
     background: #ededed;
     padding-inline: 20px;
 }
+
 .alert-button-group {
-    justify-content: center!important;
+    justify-content: center !important;
 }
-.alert-button-inner{
-    color:#fff;
-    justify-content: center!important;
+
+.alert-button-inner {
+    color: #fff;
+    justify-content: center !important;
 }
 
 .alert-button.sc-ion-alert-md {
@@ -64,61 +69,276 @@
     text-transform: uppercase;
     overflow: hidden;
 }
+
 /*Alert Modal*/
 
 
-.espec-container{
+.espec-container {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
     padding: 10px 30px;
     margin-block: 10px;
     width: 100%;
     background: #ededed;
-    .espec-inner{
+
+    .espec-inner {
         display: inline-flex;
         flex-direction: column;
         width: 20%;
         color: #202020;
     }
-    .espec-inner:nth-child(2){
+
+    .espec-inner:nth-child(2) {
         width: 80%;
     }
-    h4{
-        color:#1C4478;
+
+    h4 {
+        color: #1C4478;
         font-weight: 900;
         font-size: 18px;
         margin-top: 10%;
     }
-    ion-button{
-        --background:#1C4478;
-        width:30vw;
+
+    ion-button {
+        --background: #1C4478;
+        width: 30vw;
     }
-    
-.locations-info{
-    color: #202020;
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    margin-top: 10px;
+
+    .locations-info {
+        color: #202020;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        margin-top: 10px;
     }
+
     .locations-info p {
         line-height: 10px;
-        }
-    ion-icon{
-    color: #777777;
     }
-    .date-info{
+
+    ion-icon {
+        color: #777777;
+    }
+
+    .date-info {
         color: #a2a2a2;
         margin-bottom: 2px;
     }
-    .description{
+
+    .description {
         font-size: 16px;
     }
 }
 
-ion-content{
-    --offset-top:10px!important;
+ion-content {
+    --offset-top: 10px !important;
 }
+
+
+/* AJUSTES CALENDARIO */
+calendar {
+    color: #666666;
+
+    td {
+        background: #fff;
+        height: 4.5rem;
+    }
+
+    thead {
+        background: #fff;
+
+        tr th {
+            border: none !important;
+        }
+    }
+
+    .monthview-selected {
+        color: #666 !important;
+        background: #7ED4E1 !important;
+    }
+}
+
+.segment-calendar {
+    ion-segment-button {
+        --color: #bfbfbf !important;
+        --color-checked: #1C4478;
+    }
+}
+
+.calendar-base {
+    ion-row {
+        h2 {
+            color: #666;
+            text-transform: capitalize;
+            line-height: 32px;
+            margin-top: 12px;
+        }
+    }
+
+    ion-col {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    ion-button {
+        display: flex;
+    }
+
+    ion-icon {
+        padding-block: 10px;
+        font-size: 32px !important;
+        margin-bottom: 10px;
+    }
+
+    .today {
+        display: block;
+        margin: auto;
+        --background: transparent;
+        --box-shadow: none;
+        color: #1C4478;
+        border: 1px solid #1C4478;
+        border-radius: 8px;
+        width: 50vw;
+    }
+}
+
+ion-fab-button {
+    --background: #1C4478;
+    height: 60px;
+    width: 60px;
+
+    ion-icon {
+        font-size: 36px !important;
+    }
+}
+
+ion-modal {
+    --max-width: 95vw !important;
+    --max-height: 76vh !important;
+    --backdrop-opacity: var(--ion-backdrop-opacity, .6);
+    --ion-background-color: transparent;
+    
+
+    //--border-radius: 16px!important;
+    ion-content {
+        --background: #f4f4f4 !important;
+    }
+}
+
+.calendar-modal {
+    ion-content {
+        --color: #666 !important;
+    }
+    p:not(#date p){
+        padding-top: 20px;
+    }
+
+    .agendar{
+        --background: #1C4478!important;
+    .agendar-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-inline:2rem;
+        padding-block: 1rem;
+        ion-button{
+            height: auto;
+            width: 100%;
+        }
+    }
+    ion-icon[name="calendar-outline"]{
+        width: 24px !important;
+        height: 24px !important;
+        margin-right: 12px;
+        --color: #fff!important;
+    }
+}
+}
+
+#date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    h2 {
+        font-weight: 900;
+        font-size: 60px;
+    }
+    p{
+        font-weight: 600;
+        margin-top: -1em;
+    }
+}
+
+#time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #797A7A;
+    color: #fff;
+    padding-block: 26px 16px;
+    border-radius: 10px;
+    h4{
+        font-size: 22px;
+        line-height: 22px;
+    }
+}
+
+.table-consult{
+    text-transform: uppercase;
+    ion-row{
+        border-top: 1px solid #D6D1D1;
+        padding-block: 10px;
+    }
+    
+    ion-col:nth-child(1){
+        font-size: 10px;
+    }
+    ion-col:nth-child(3){
+        font-size: 16px;
+        text-align: right;
+    }
+    .aditional-info{
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .total{
+        color: #1C4478;
+        font-size: 24px!important;
+    }
+}
+
+.close-modal{
+    ion-button{
+        --background: transparent!important;
+        --box-shadow:none!important;
+        position: relative;
+        right: -20px;
+    }
+    ion-icon{
+        width: 36px;
+        height: 36px;
+    }
+}
+
+.ion-delegate-host.ion-page {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: visible;
+    z-index: 0;
+    align-items: flex-end;
+    --background: var(--ion-background-color, transparent)!important;
+}
+
+/* FIM AJUSTES CALENDARIO */

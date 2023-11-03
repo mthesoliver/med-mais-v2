@@ -12,11 +12,11 @@ import { MedFamiliaComponent } from './med-familia/med-familia.component';
 const routes: Routes = [
   {
     path: '',
-    component: AgendarExamesPage
+    component: AgendarExamesPage,
   },
   {
     path: 'endocrinologistas',
-    component: EndocrinologistasComponent
+    component: EndocrinologistasComponent,
   },
   {
     path: 'ortopedistas',
@@ -37,7 +37,7 @@ const routes: Routes = [
   {
     path: 'med-familia',
     component: MedFamiliaComponent
-  }
+  },
 ];
 
 @NgModule({

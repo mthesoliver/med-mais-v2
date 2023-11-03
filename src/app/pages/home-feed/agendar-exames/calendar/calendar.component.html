@@ -1,0 +1,118 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-toolbar>
+
+  <ion-back-button icon="chevron-back-outline" defaultHref="tabs/home-feed"></ion-back-button>
+
+  <figure class="header-logo-position">
+    <img src=".\assets\medmais-cor.png" width="160" alt="Med= logo">
+  </figure>
+  <ion-label class="page-tittle">
+    Marcar exames
+  </ion-label>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a condimentum nisl. Donec ac facilisis.</p>
+
+</ion-toolbar>
+
+<ion-content [fullscreen]="true" class="header-bg">
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" [pullFactor]=".25" [pullMin]="100" [pullMax]="100">
+    <ion-refresher-content pullingIcon="" refreshingSpinner="circles" refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <section class="calendar-base">
+
+    <ion-segment [(ngModel)]="calendar.mode" class="segment-calendar">
+      <ion-segment-button value="month">Mês</ion-segment-button>
+      <ion-segment-button value="week">Semana</ion-segment-button>
+      <ion-segment-button value="day">Dia</ion-segment-button>
+    </ion-segment>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-button fill="clear" (click)="calendarBack()">
+          <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="8">
+        <h2 class="ion-text-center">
+          {{ viewTitle }}
+          <ion-button (click)="setToday()" class="today">Hoje</ion-button>
+        </h2>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-button fill="clear" (click)="calendarForward()">
+          <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <calendar [calendarMode]="calendar.mode" (onTitleChanged)="viewTitle=$event" [startHour]="6" [endHour]="20">
+    </calendar>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button id="inputModal">
+        <ion-icon name="add" color="white">
+        </ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </section>
+
+  <ion-modal trigger="inputModal" #modal class="calendar-modal">
+    <ng-template>
+      
+      <div class="close-modal">
+        <ion-button (click)="modal.dismiss()">
+          <ion-icon name="close-circle-outline"></ion-icon></ion-button>
+      </div>
+
+      <ion-content class="ion-padding">
+        <ion-title class="ion-text-center ion-text-uppercase"> <strong>Nova Consulta</strong> </ion-title>
+        <p class="ion-text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+        <div id="date">
+          <h2 class="ion-text-center ion-text-uppercase">09</h2>
+          <h4 class="ion-text-center ion-text-uppercase">Segunda-feira</h4>
+          <p class="ion-text-center ion-text-uppercase">Julho 2023</p>
+        </div>
+
+        <div id="time">
+          <h4 class="ion-text-center ion-text-uppercase">{{ time1.startTime }} - {{ time1.endTime }}</h4>
+        </div>
+
+        <p class="ion-text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+        <section class="table-consult">
+          <ion-row>
+            <ion-col size="3">Locação</ion-col>
+            <ion-col size="5" class="aditional-info">Reserva 1 hora <br>Nome do espaço</ion-col>
+            <ion-col size="4"> <strong>R$100,00</strong></ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="3"></ion-col>
+            <ion-col size="4">Total</ion-col>
+            <ion-col size="5" class="total"><strong>R$100,00</strong></ion-col>
+          </ion-row>
+        </section>
+
+        <!--<ion-input [(ngModel)]="newEvent.title" placeholder="Consulta"></ion-input>
+        [disabled]="!newEvent.title" -->
+      </ion-content>
+
+      <ion-toolbar class="agendar">
+        <ion-buttons class="agendar-btn">
+          <ion-button (click)="scheduleEvent()" strong > 
+            <ion-icon name="calendar-outline"></ion-icon> Marcar </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

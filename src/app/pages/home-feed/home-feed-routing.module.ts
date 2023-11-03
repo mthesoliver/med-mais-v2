@@ -3,6 +3,7 @@ import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeFeedPage } from './home-feed.page';
+import { MyCalendarComponent } from './agendar-exames/calendar/mycalendar.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'agendar-exames',
-    loadChildren: () => import('./agendar-exames/agendar-exames.module').then( m => m.AgendarExamesPageModule)
+    loadChildren: () => import('./agendar-exames/agendar-exames.module').then( m => m.AgendarExamesPageModule),
   },
 ];
 

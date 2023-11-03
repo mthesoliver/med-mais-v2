@@ -81,6 +81,7 @@ ion-back-button {
 
     .card-bg {
         --background: #fff;
+        border-radius: 20px;
     }
 }
 
@@ -104,6 +105,7 @@ ion-back-button {
 .feed-service {
     --background: #fff;
     margin: 2em 1em;
+    border-radius: 20px;
 
     ion-button {
         --padding-start: .3em;

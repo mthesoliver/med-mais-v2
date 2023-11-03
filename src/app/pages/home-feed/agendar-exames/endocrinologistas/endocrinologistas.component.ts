@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { MatTableModule } from '@angular/material/table';
@@ -23,7 +24,7 @@ export class EndocrinologistasComponent  implements OnInit {
   medicos: Observable<Medicos[]>;
   displayedColumns= ['nomeMedico', 'actions'];
 
-  constructor(private medserv:ListarMedicosService) { 
+  constructor(private medserv:ListarMedicosService, private router: Router) { 
     this.medicos = this.medserv.listarTodasEspecialidades("/especialidade?especialidade=Endocrinologista")
   }
 
@@ -38,6 +39,10 @@ handleRefresh(event:any) {
     this.ngOnInit();
     event.target.complete();
   }, 1000);
+}
+
+navigateCalendar() {
+  this.router.navigate(['/calendar']);
 }
 
 }

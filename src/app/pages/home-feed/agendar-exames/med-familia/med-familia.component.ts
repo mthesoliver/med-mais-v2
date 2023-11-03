@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Medicos } from 'src/app/models/medicos';
@@ -23,7 +24,7 @@ export class MedFamiliaComponent  implements OnInit {
   medicos: Observable<Medicos[]>;
   displayedColumns= ['nomeMedico', 'actions'];
 
-  constructor(private medserv:ListarMedicosService) { 
+  constructor(private medserv:ListarMedicosService, private router:Router) { 
     this.medicos = this.medserv.listarTodasEspecialidades("/especialidade?especialidade=Médico da Familia")
   }
 
@@ -39,6 +40,10 @@ handleRefresh(event:any) {
     this.ngOnInit();
     event.target.complete();
   }, 1000);
+}
+
+navigateCalendar() {
+  this.router.navigate(['/calendar']);
 }
 
 }
