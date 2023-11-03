@@ -137,8 +137,23 @@ ion-content {
     --offset-top: 10px !important;
 }
 
+ion-item{
+    --background:#f4f4f4!important;
+    --color:#666!important;
+}
 
 /* AJUSTES CALENDARIO */
+
+ion-content .header-bg{
+    height: 100%!important;
+    --padding-top: 16rem!important;
+    --offset-top: 2px !important;
+}
+ion-toolbar.toolbar-fixed{
+    position: fixed;
+}
+
+
 calendar {
     color: #666666;
 
@@ -176,6 +191,10 @@ calendar {
             line-height: 32px;
             margin-top: 12px;
         }
+    }
+
+    ion-list.list-md {
+        background: #f4f4f4!important;
     }
 
     ion-col {
@@ -226,6 +245,12 @@ ion-modal {
     //--border-radius: 16px!important;
     ion-content {
         --background: #f4f4f4 !important;
+    }
+
+    ion-datetime{
+        margin-block: 12px!important;
+        border-radius:12px;
+        --background: #fff;
     }
 }
 
@@ -339,6 +364,11 @@ ion-modal {
     z-index: 0;
     align-items: flex-end;
     --background: var(--ion-background-color, transparent)!important;
+}
+
+.dayview-normal-event-container {
+    position: relative !important;
+    font-size: 14px;
 }
 
 /* FIM AJUSTES CALENDARIO */

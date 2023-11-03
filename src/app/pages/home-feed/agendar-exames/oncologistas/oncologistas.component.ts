@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Medicos } from 'src/app/models/medicos';
 import { ListarMedicosService } from 'src/app/services/listar-medicos.service';
+import { MyCalendarComponent } from '../calendar/mycalendar.component';
 
 @Component({
   selector: 'app-oncologistas',
@@ -15,7 +16,8 @@ import { ListarMedicosService } from 'src/app/services/listar-medicos.service';
   imports:[
     IonicModule,
     MatTableModule,
-    CommonModule
+    CommonModule,
+    MyCalendarComponent
   ]
 })
 export class OncologistasComponent  implements OnInit {
@@ -44,5 +46,11 @@ handleRefresh(event:any) {
 navigateCalendar() {
   this.router.navigate(['/calendar']);
 }
+
+isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 
 }

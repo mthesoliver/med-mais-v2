@@ -1,9 +1,9 @@
 <ion-header [translucent]="true">
 </ion-header>
 
-<ion-toolbar>
+<ion-toolbar class="toolbar-fixed">
 
-  <ion-back-button icon="chevron-back-outline" defaultHref="tabs/home-feed"></ion-back-button>
+  <ion-back-button icon="chevron-back-outline" defaultHref="/agendar-exames"></ion-back-button>
 
   <figure class="header-logo-position">
     <img src=".\assets\medmais-cor.png" width="160" alt="Med= logo">
@@ -26,7 +26,6 @@
 
     <ion-segment [(ngModel)]="calendar.mode" class="segment-calendar">
       <ion-segment-button value="month">Mês</ion-segment-button>
-      <ion-segment-button value="week">Semana</ion-segment-button>
       <ion-segment-button value="day">Dia</ion-segment-button>
     </ion-segment>
 
@@ -51,19 +50,82 @@
       </ion-col>
     </ion-row>
 
-    <calendar [calendarMode]="calendar.mode" (onTitleChanged)="viewTitle=$event" [startHour]="6" [endHour]="20">
-    </calendar>
-
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button id="inputModal">
-        <ion-icon name="add" color="white">
-        </ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+    <calendar 
+    [calendarMode]="calendar.mode" 
+    [startHour]="6" [endHour]="20"
+    [eventSource]="eventSource"
+    (onTitleChanged)="viewTitle=$event" 
+    (onTimeSelected)="onTimeSelected($event)"
+    ></calendar>
 
   </section>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button id="inputModal">
+      <ion-icon name="add" color="white">
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  
   <ion-modal trigger="inputModal" #modal class="calendar-modal">
+    <ng-template>
+
+      <div class="close-modal">
+        <ion-button (click)="modal.dismiss()">
+          <ion-icon name="close-circle-outline"></ion-icon></ion-button>
+      </div>
+
+      <ion-content class="ion-padding">
+
+        <ion-title class="ion-text-center ion-text-uppercase"> <strong>Nova Consulta</strong> </ion-title>
+        <p class="ion-text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+        <ion-item>
+          <ion-label position="stacked">Consulta</ion-label>
+          <ion-input type="text" [(ngModel)]="newEvent.title" placeholder="Consulta"></ion-input>
+        </ion-item>
+
+        <ion-item (click)="showStart = !showStart">
+          <ion-label>Início</ion-label>
+          <ion-text slot="end">{{ formattedStart }}</ion-text>
+        </ion-item>
+        <ion-datetime
+        #start
+        *ngIf="showStart"
+        [value]="newEvent.startTime"
+        [presentation]="newEvent.allday ? 'date':'time-date'"
+        (ionChange)="startChanged(start.value)"
+        ></ion-datetime>
+
+        <ion-item (click)="showEnd = !showEnd">
+          <ion-label>Final</ion-label>
+          <ion-text slot="end">{{ formattedEnd }}</ion-text>
+        </ion-item>
+        <ion-datetime
+        #end
+        *ngIf="showEnd"
+        [value]="newEvent.endTime"
+        [presentation]="newEvent.allday ? 'date':'time-date'"
+        (ionChange)="endChanged(end.value)"
+        ></ion-datetime>
+
+      </ion-content>
+
+      <ion-toolbar class="agendar">
+        <ion-buttons class="agendar-btn">
+          <ion-button (click)="addEvent()" strong 
+          [disabled]="!newEvent.title">
+            <ion-icon name="calendar-outline"></ion-icon> Marcar </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+
+    </ng-template>
+  </ion-modal>
+
+
+  <!-- <ion-modal trigger="inputModal" #modal class="calendar-modal">
     <ng-template>
       
       <div class="close-modal">
@@ -101,8 +163,8 @@
           </ion-row>
         </section>
 
-        <!--<ion-input [(ngModel)]="newEvent.title" placeholder="Consulta"></ion-input>
-        [disabled]="!newEvent.title" -->
+        <ion-input [(ngModel)]="newEvent.title" placeholder="Consulta"></ion-input>
+        [disabled]="!newEvent.title" 
       </ion-content>
 
       <ion-toolbar class="agendar">
@@ -113,6 +175,5 @@
       </ion-toolbar>
 
     </ng-template>
-  </ion-modal>
-
+  </ion-modal> -->
 </ion-content>

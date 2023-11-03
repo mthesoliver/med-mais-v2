@@ -22,6 +22,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
 import { NgCalendarModule  } from 'ionic6-calendar';
+import { CalendarService } from 'ionic6-calendar/calendar.service';
 
 registerLocaleData(localePt, 'pt'); // Registre o locale
 
