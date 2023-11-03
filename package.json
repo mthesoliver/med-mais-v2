@@ -31,7 +31,7 @@
     "@capacitor/status-bar": "5.0.6",
     "@ionic/angular": "^7.0.0",
     "@jcesarmobile/ssl-skip": "0.2.0",
-    "ionic6-calendar": "^1.0.1 --legacy-peer-deps",
+    "ionic6-calendar": "^1.0.1",
     "ionicons": "^7.0.0",
     "ngx-mask": "^16.3.8",
     "rxjs": "~7.8.0",
