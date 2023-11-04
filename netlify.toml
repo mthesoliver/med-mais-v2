@@ -2,7 +2,3 @@
     command = "npm run  ionic-calendar && npm run ionic-storage && npm run install-date && npm run build"
     publish = "www"
     
-[[plugins]]
-  package = "@netlify/plugin-next"
-  [plugins.inputs]
-    buildCommand = "npm run build"
