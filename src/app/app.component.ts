@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CalendarioService } from './services/calendario.service';
 
 @Component({
   selector: 'app-root',

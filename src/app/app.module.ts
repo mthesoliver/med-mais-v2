@@ -22,7 +22,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
 import { NgCalendarModule  } from 'ionic6-calendar';
-import { CalendarService } from 'ionic6-calendar/calendar.service';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 registerLocaleData(localePt, 'pt'); // Registre o locale
 
@@ -38,7 +38,10 @@ registerLocaleData(localePt, 'pt'); // Registre o locale
     provideAuth(() => getAuth()),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    NgCalendarModule
+    NgCalendarModule,
+    IonicStorageModule.forRoot({
+      name:"calDB"
+    }),
   ],
   providers: [
     AuthenticationService,

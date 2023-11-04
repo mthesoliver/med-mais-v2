@@ -1,4 +1,3 @@
-import { EventosFavoritosPage } from './../../eventos-favoritos/eventos-favoritos.page';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -51,11 +50,12 @@ export class MyCalendarComponent implements OnInit {
   formattedStart='';
   formattedEnd='';
 
-  constructor(private modalCtrl: ModalController) { 
+  constructor(private modalCtrl: ModalController, private calService:CalendarioService) {
   }
 
   async ngOnInit() {
-    this.createRandomEvents();
+    //this.createRandomEvents();
+    this.eventSource = await this.calService.getData();
   }
 
   handleRefresh(event:any) {

@@ -28,7 +28,7 @@ export class CalendarioService {
   }
 
   async addData(item:CalEvent){
-    const data = await this.getData();
+    const data = await this.getData() || [];
     data.push(item);
     return this.storage.set(STORAGE_KEY, data);
   }
