@@ -5,8 +5,8 @@ const STORAGE_KEY = 'myevents';
 
 export interface CalEvent{
   title: string;
-  startTime: string;
-  endTime: string;
+  startTime: Date;
+  endTime: Date;
   allDay: boolean;
 }
 
@@ -28,8 +28,13 @@ export class CalendarioService {
   }
 
   async addData(item:CalEvent){
-    const data = await this.getData() || [];
+    const data = await this.getData();
     data.push(item);
     return this.storage.set(STORAGE_KEY, data);
   }
+
+  async delete(){
+    return await this.storage.clear();
+  }
+
 }

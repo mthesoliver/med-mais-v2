@@ -54,8 +54,11 @@
     [calendarMode]="calendar.mode" 
     [startHour]="6" [endHour]="20"
     [eventSource]="eventSource"
+    [autoSelect]="false"
+    (onEventSelected)="onEventSelected($event)"
     (onTitleChanged)="viewTitle=$event" 
     (onTimeSelected)="onTimeSelected($event)"
+    [monthviewDisplayEventTemplate]="template"
     ></calendar>
 
   </section>
@@ -88,7 +91,7 @@
         </ion-item>
 
         <ion-item (click)="showStart = !showStart">
-          <ion-label>Início</ion-label>
+          <ion-label>Início da Consulta</ion-label>
           <ion-text slot="end">{{ formattedStart }}</ion-text>
         </ion-item>
         <ion-datetime
@@ -100,7 +103,7 @@
         ></ion-datetime>
 
         <ion-item (click)="showEnd = !showEnd">
-          <ion-label>Final</ion-label>
+          <ion-label>Final da Consulta</ion-label>
           <ion-text slot="end">{{ formattedEnd }}</ion-text>
         </ion-item>
         <ion-datetime
@@ -110,6 +113,8 @@
         [presentation]="newEvent.allday ? 'date':'time-date'"
         (ionChange)="endChanged(end.value)"
         ></ion-datetime>
+
+        <!-- <ion-button (click)="removeEvents()">Desmarcar Consulta</ion-button> -->
 
       </ion-content>
 
@@ -123,6 +128,13 @@
 
     </ng-template>
   </ion-modal>
+
+  <ng-template #template let-view="view" let-row="row" let-col="col">
+    {{ view.dates[row*7+col].label }}
+    <div class="indicator-container">
+      <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"></div>
+    </div>
+  </ng-template>
 
 
   <!-- <ion-modal trigger="inputModal" #modal class="calendar-modal">

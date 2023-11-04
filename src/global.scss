@@ -371,4 +371,20 @@ ion-modal {
     font-size: 14px;
 }
 
+.indicator-container{
+    padding: .4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:2px;
+}
+
+.event-indicator{
+    margin-top: .6rem;
+    background-color: #2cffef;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+
 /* FIM AJUSTES CALENDARIO */

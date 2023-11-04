@@ -5,7 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { IonModal, IonicModule, ModalController } from '@ionic/angular';
 import { format, parseISO } from 'date-fns/fp';
 import { CalendarMode, NgCalendarModule , CalendarComponent} from 'ionic6-calendar';
-import { CalendarioService } from 'src/app/services/calendario.service';
+import { CalEvent, CalendarioService } from 'src/app/services/calendario.service';
 
 @Component({
   selector: 'app-calendar',
@@ -40,7 +40,6 @@ export class MyCalendarComponent implements OnInit {
 
   newEvent: any = {
     title:'',
-    allDay:true,
     startTime:'',
     endTime:''
   };
@@ -50,12 +49,13 @@ export class MyCalendarComponent implements OnInit {
   formattedStart='';
   formattedEnd='';
 
-  constructor(private modalCtrl: ModalController, private calService:CalendarioService) {
+  constructor(private calService:CalendarioService) {
   }
 
   async ngOnInit() {
-    //this.createRandomEvents();
     this.eventSource = await this.calService.getData();
+    //this.createRandomEvents();
+    console.log(this.eventSource)
   }
 
   handleRefresh(event:any) {
@@ -79,7 +79,31 @@ export class MyCalendarComponent implements OnInit {
   }
 
   addEvent(){
-    this.modalCtrl.dismiss({newEvent: this.newEvent});
+    const toAdd: CalEvent = {
+      title: this.newEvent.title,
+      startTime: new Date(this.newEvent.startTime),
+      endTime: new Date(this.newEvent.endTime),
+      allDay: false
+    };
+    console.log(toAdd);
+
+    this.eventSource.push(toAdd);
+    this.myCal.loadEvents();
+    this.calService.addData(toAdd);
+
+    this.newEvent = {
+      title:'',
+      allDay: false,
+      startTime: null,
+      endTime: null
+    };
+
+    this.modal.dismiss();
+  }
+
+  removeEvents(){
+    this.eventSource = [];
+    this.calService.delete();
   }
 
   onViewTitleChanged(title: string) {
@@ -108,6 +132,10 @@ export class MyCalendarComponent implements OnInit {
   endChanged(value:any){
     this.newEvent.endTime = value;    
     this.formattedEnd = format('d MMM, HH:mm', parseISO(value));  
+  }
+
+  onEventSelected(event: any){
+    console.log(event);
   }
 
   createRandomEvents() {
@@ -141,7 +169,7 @@ export class MyCalendarComponent implements OnInit {
           title: 'Reservado - ' + i,
           startTime: startTime,
           endTime: endTime,
-          allDay: true,
+          allDay: false,
         });
       } else {
         var startMinute = Math.floor(Math.random() * 24 * 60);
