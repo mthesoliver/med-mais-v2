@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment.prod';
 export class ListarMedicosService {
 
   loadingData: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  //private readonly springAPI = environment.springAPI;
-  private readonly springAPI = "http://localhost:5000/medicos"
+  private readonly springAPI = environment.springAPI;
+  //private readonly springAPI = "http://localhost:5000/medicos"
 
   constructor(private http: HttpClient) { }
 
