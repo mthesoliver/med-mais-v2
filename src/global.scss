@@ -388,3 +388,18 @@ ion-modal {
 }
 
 /* FIM AJUSTES CALENDARIO */
+
+
+/* AJUSTE ALERT DE ERRO */
+.alert-wrapper.sc-ion-alert-md {
+    --background: #fff;
+    text-align: center;
+    h2{
+        color: rgb(255, 0, 0) !important;
+        text-align: center;
+    }
+}
+.alert-button.sc-ion-alert-md {
+    width: 60%;
+}
+/* FIM AJUSTE ALERT DE ERRO */

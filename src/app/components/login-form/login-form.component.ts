@@ -5,7 +5,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { IonicModule, LoadingController } from '@ionic/angular';
+import { AlertController, IonicModule, LoadingController } from '@ionic/angular';
 
 import { UserResponsavel } from 'src/app/models/user-responsavel';
 import { Router } from '@angular/router';
@@ -45,7 +45,7 @@ export class LoginFormComponent{
     password: [null, Validators.required],
   });
 
-  constructor(private fb: FormBuilder, private route: Router, public loadingCtrl:LoadingController, public authService:AuthenticationService) { }
+  constructor(private alertController: AlertController, private fb: FormBuilder, private route: Router, public loadingCtrl:LoadingController, public authService:AuthenticationService) { }
 
 
 onSubmit(): void {
@@ -53,7 +53,7 @@ onSubmit(): void {
       this.route.navigate(['/home-feed']);
   };
 
-  async loginUser(){
+  async loginUser(){ 
     const loading = await this.loadingCtrl.create();
     await loading.present();
     if(this.loginForm?.valid){
@@ -66,10 +66,24 @@ onSubmit(): void {
         loading.dismiss();
         this.route.navigate(['tabs/home-feed']);
       }else{
-        console.log("Informações inválidas");
+        console.log("Informações Inválidas")
+        this.mostrarAlerta('Informações inválidas', 'Usuário não encontrado, favor confira as informações fornecidas');
       }
     }
+    
   }
+  
+  async mostrarAlerta(titulo: string, mensagem: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensagem,
+      buttons: ['OK']
+    });
+  
+    await alert.present();
+  }
+
+
 
   goToReset(){
     this.route.navigate(['/reset-password']);

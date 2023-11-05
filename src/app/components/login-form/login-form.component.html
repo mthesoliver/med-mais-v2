@@ -6,6 +6,9 @@
       <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
         Email é<strong> obrigatório</strong>
       </mat-error>
+      <mat-error *ngIf="loginForm.controls['email'].hasError('email')">
+        Email é<strong> inválido</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>

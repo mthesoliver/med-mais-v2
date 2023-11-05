@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
-import { IonicModule, LoadingController } from '@ionic/angular';
+import { AlertController, IonicModule, LoadingController } from '@ionic/angular';
 
 import { GenericValidator } from 'src/app/common/validator';
 import { UserResponsavel } from 'src/app/models/user-responsavel';
@@ -69,11 +69,13 @@ export class CadastroFormComponent implements OnInit {
     ],
     dataNascimento: [null, Validators.required],
     telefone: [null, Validators.required],
-    password: [null, Validators.required],
+    password: [null, Validators.compose([
+      Validators.required,Validators.minLength(8)
+    ])],
     passwordValid: [null, Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private route: Router, public loadingCtrl:LoadingController, public authService:AuthenticationService) { }
+  constructor(private alertController: AlertController, private fb: FormBuilder, private route: Router, public loadingCtrl:LoadingController, public authService:AuthenticationService) { }
 
   ngOnInit() { 
     this.registerForm.get('passwordValid')?.setValidators([Validators.required, this.passwordMatchValidator.bind(this)]);
@@ -114,11 +116,21 @@ export class CadastroFormComponent implements OnInit {
           loading.dismiss();
           this.route.navigate(['/add-pessoas']);
         }else{
-          console.log("Informações inválidas");
+          console.log("Informações Inválidas")
+          this.mostrarAlerta('Informações inválidas', 'O endereço de email informado já está cadastrado, por favor informe outro endereço de email');
         }
       }
     }
 
+    async mostrarAlerta(titulo: string, mensagem: string) {
+      const alert = await this.alertController.create({
+        header: titulo,
+        message: mensagem,
+        buttons: ['OK']
+      });
+    
+      await alert.present();
+    }
 
   }
   
