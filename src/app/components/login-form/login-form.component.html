@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <form [formGroup]="loginForm" novalidate (ngSubmit)="loginUser()">
+    <form [formGroup]="loginForm" novalidate >
     <mat-form-field>
       <input matInput placeholder="exemplo@email.com" formControlName="email" required>
       <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
@@ -21,11 +21,11 @@
       </button>
     </mat-form-field>
 
-    <ion-button>
+    <ion-button (click)="goToReset()">
       <span>Esqueci a minha senha</span>
     </ion-button>
 
-    <ion-button class="btn-login" type="submit" [disabled]="!loginForm.valid">
+    <ion-button class="btn-login" type="submit" [disabled]="!loginForm.valid" (click)="loginUser()">
       <span>ENTRAR</span>
     </ion-button>
     </form>

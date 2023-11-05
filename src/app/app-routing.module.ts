@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth-guard.guard';
 import { MyCalendarComponent } from './pages/home-feed/agendar-exames/calendar/mycalendar.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -43,7 +44,11 @@ const routes: Routes = [
   {
     path: 'calendar',
     component: MyCalendarComponent,
-  }
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
+  },
 ];
 
 @NgModule({

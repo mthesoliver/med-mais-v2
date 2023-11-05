@@ -20,7 +20,6 @@ export class AuthenticationService {
 
   async resetPassword(email: string) {
     return await this.ngFireAuth.sendPasswordResetEmail(email);
-
   }
   
   async getProfile() {
@@ -48,4 +47,6 @@ export class AuthenticationService {
       console.log(userCredential.user);
     }
   }
+
+
 }

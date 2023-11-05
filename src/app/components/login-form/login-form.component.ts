@@ -71,5 +71,9 @@ onSubmit(): void {
     }
   }
 
+  goToReset(){
+    this.route.navigate(['/reset-password']);
+  }
+
 
 }

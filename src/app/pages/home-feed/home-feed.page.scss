@@ -140,3 +140,19 @@ ion-back-button {
 .material-symbols-outlined {
     font-size: 60px;
 }
+
+.hello {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:18vh;
+    span{
+        padding: 0.4em;
+        border-radius: 8px;
+        font-weight: 200;
+    }
+    p{
+        font-size: 16px;
+    }
+}

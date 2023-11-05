@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserResponsavel } from 'src/app/models/user-responsavel';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { getAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-home-feed',
@@ -9,10 +9,11 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./home-feed.page.scss'],
 })
 export class HomeFeedPage implements OnInit {
-  nome:UserResponsavel = new UserResponsavel;
-  user:any
-  constructor(private route: Router ,public authService:AuthenticationService) { 
-    this.user = authService.getProfile()
+  auth = getAuth();
+  user = this.auth.currentUser
+
+  constructor(private route: Router, public authService:AuthenticationService) { 
+    
   }
 
   ngOnInit() {
