@@ -76,7 +76,7 @@ export class MyCalendarComponent implements OnInit {
     const toAdd: CalEvent = {
       title: this.newEvent.title,
       startTime: new Date(this.newEvent.startTime),
-      endTime: new Date(this.newEvent.startTime.getHours() + 1),
+      endTime: new Date(this.newEvent.endTime),
       allDay: false
     };
     console.log(toAdd);
