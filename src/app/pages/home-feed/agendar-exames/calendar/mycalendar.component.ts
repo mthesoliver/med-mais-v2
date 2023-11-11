@@ -21,13 +21,7 @@ import { CalEvent, CalendarioService } from 'src/app/services/calendario.service
   ],
 })
 export class MyCalendarComponent implements OnInit {
-
-  time1 = { startTime:"10:00", endTime:"11:00"}
-  time2 = { startTime:"12:00", endTime:"13:00"}
-  time3 = { startTime:"14:00", endTime:"15:00"}
-  time4 = { startTime:"17:00", endTime:"18:00"}
-
-
+  
   calendar = {
     mode:'month' as CalendarMode,
     currentDate: new Date(),
@@ -39,7 +33,7 @@ export class MyCalendarComponent implements OnInit {
   @ViewChild('modal') modal!: IonModal;
 
   newEvent: any = {
-    title:'',
+    title:'Consulta',
     startTime:'',
     endTime:''
   };
@@ -82,7 +76,7 @@ export class MyCalendarComponent implements OnInit {
     const toAdd: CalEvent = {
       title: this.newEvent.title,
       startTime: new Date(this.newEvent.startTime),
-      endTime: new Date(this.newEvent.endTime),
+      endTime: new Date(this.newEvent.startTime),
       allDay: false
     };
     console.log(toAdd);
@@ -92,7 +86,7 @@ export class MyCalendarComponent implements OnInit {
     this.calService.addData(toAdd);
 
     this.newEvent = {
-      title:'',
+      title:'Consulta',
       allDay: false,
       startTime: null,
       endTime: null
@@ -137,6 +131,12 @@ export class MyCalendarComponent implements OnInit {
   onEventSelected(event: any){
     console.log(event);
   }
+
+  markDisabled = (date: Date) => {
+    var current = new Date();
+    return date < current;
+};
+
 
   createRandomEvents() {
     var events = [];

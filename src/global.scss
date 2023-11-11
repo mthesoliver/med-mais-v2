@@ -137,9 +137,9 @@ ion-content {
     --offset-top: 10px !important;
 }
 
-ion-item{
-    --background:#f4f4f4!important;
-    --color:#666!important;
+ion-item {
+    --background: #f4f4f4 !important;
+    --color: #666 !important;
 }
 
 /* AJUSTES CALENDARIO */
@@ -194,7 +194,7 @@ calendar {
     }
 
     ion-list.list-md {
-        background: #f4f4f4!important;
+        background: #f4f4f4 !important;
     }
 
     ion-col {
@@ -223,6 +223,21 @@ calendar {
         border-radius: 8px;
         width: 50vw;
     }
+
+    ion-item {
+        --background: #C4C6C7 !important;
+        color: #fff;
+        border-radius: 6px;
+        margin-left: 60px;
+        margin-top: 3px;
+        --border-color:none!important;
+        :nth-child(2) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+        }
+    }
 }
 
 ion-fab-button {
@@ -240,16 +255,16 @@ ion-modal {
     --max-height: 76vh !important;
     --backdrop-opacity: var(--ion-backdrop-opacity, .6);
     --ion-background-color: transparent;
-    
+
 
     //--border-radius: 16px!important;
     ion-content {
         --background: #f4f4f4 !important;
     }
 
-    ion-datetime{
-        margin-block: 12px!important;
-        border-radius:12px;
+    ion-datetime {
+        margin-block: 12px !important;
+        border-radius: 12px;
         --background: #fff;
     }
 }
@@ -258,30 +273,34 @@ ion-modal {
     ion-content {
         --color: #666 !important;
     }
-    p:not(#date p){
+
+    p:not(#date p) {
         padding-top: 20px;
     }
 
-    .agendar{
-        --background: #1C4478!important;
-    .agendar-btn{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-inline:2rem;
-        padding-block: 1rem;
-        ion-button{
-            height: auto;
-            width: 100%;
+    .agendar {
+        --background: #1C4478 !important;
+
+        .agendar-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-inline: 2rem;
+            padding-block: 1rem;
+
+            ion-button {
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        ion-icon[name="calendar-outline"] {
+            width: 24px !important;
+            height: 24px !important;
+            margin-right: 12px;
+            --color: #fff !important;
         }
     }
-    ion-icon[name="calendar-outline"]{
-        width: 24px !important;
-        height: 24px !important;
-        margin-right: 12px;
-        --color: #fff!important;
-    }
-}
 }
 
 #date {
@@ -290,17 +309,19 @@ ion-modal {
     justify-content: center;
     align-items: center;
     margin-top: 3em;
+
     h2 {
         font-weight: 900;
         font-size: 60px;
     }
-    p{
+
+    p {
         font-weight: 600;
         margin-top: -1em;
     }
 }
 
-#time{
+#time {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -308,44 +329,50 @@ ion-modal {
     color: #fff;
     padding-block: 26px 16px;
     border-radius: 10px;
-    h4{
+
+    h4 {
         font-size: 22px;
         line-height: 22px;
     }
 }
 
-.table-consult{
+.table-consult {
     text-transform: uppercase;
-    ion-row{
+
+    ion-row {
         border-top: 1px solid #D6D1D1;
         padding-block: 10px;
     }
-    
-    ion-col:nth-child(1){
+
+    ion-col:nth-child(1) {
         font-size: 10px;
     }
-    ion-col:nth-child(3){
+
+    ion-col:nth-child(3) {
         font-size: 16px;
         text-align: right;
     }
-    .aditional-info{
+
+    .aditional-info {
         font-size: 12px;
         font-weight: 600;
     }
-    .total{
+
+    .total {
         color: #1C4478;
-        font-size: 24px!important;
+        font-size: 24px !important;
     }
 }
 
-.close-modal{
-    ion-button{
-        --background: transparent!important;
-        --box-shadow:none!important;
+.close-modal {
+    ion-button {
+        --background: transparent !important;
+        --box-shadow: none !important;
         position: relative;
         right: -20px;
     }
-    ion-icon{
+
+    ion-icon {
         width: 36px;
         height: 36px;
     }
@@ -363,7 +390,7 @@ ion-modal {
     overflow: visible;
     z-index: 0;
     align-items: flex-end;
-    --background: var(--ion-background-color, transparent)!important;
+    --background: var(--ion-background-color, transparent) !important;
 }
 
 .dayview-normal-event-container {
@@ -371,15 +398,15 @@ ion-modal {
     font-size: 14px;
 }
 
-.indicator-container{
+.indicator-container {
     padding: .4rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:2px;
+    gap: 2px;
 }
 
-.event-indicator{
+.event-indicator {
     margin-top: .6rem;
     background-color: #2cffef;
     width: 5px;
@@ -387,6 +414,41 @@ ion-modal {
     border-radius: 50%;
 }
 
+.time-display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 32px;
+    font-size: 32px !important;
+}
+
+ion-row.row-time {
+    margin: 6px;
+    padding: 10px;
+    padding-block: 16px;
+    border-radius: 8px;
+    background: #666 !important;
+    
+    ion-label{ 
+    color: #fff;
+    font-size: 16px;
+    }
+
+    ion-col{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .line{
+        height: 2px;
+        width: 60%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
 /* FIM AJUSTES CALENDARIO */
 
 
@@ -394,12 +456,15 @@ ion-modal {
 .alert-wrapper.sc-ion-alert-md {
     --background: #fff;
     text-align: center;
-    h2{
+
+    h2 {
         color: rgb(255, 0, 0) !important;
         text-align: center;
     }
 }
+
 .alert-button.sc-ion-alert-md {
     width: 60%;
 }
+
 /* FIM AJUSTE ALERT DE ERRO */
