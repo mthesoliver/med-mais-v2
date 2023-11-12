@@ -228,8 +228,8 @@ calendar {
         --background: #C4C6C7 !important;
         color: #fff;
         border-radius: 6px;
-        margin-left: 60px;
-        margin-top: 3px;
+        margin-inline:6px;
+        margin-top: 6px;
         --border-color:none!important;
         :nth-child(2) {
             display: flex;
@@ -449,6 +449,19 @@ ion-row.row-time {
         align-items: center;
     }
 }
+
+.list-show {
+    background: #eb445a;
+    color: #fff;
+    font-size: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding-block: 10px;
+    margin: 6px;
+    border-radius: 8px;
+}
+
 /* FIM AJUSTES CALENDARIO */
 
 

@@ -137,6 +137,23 @@ export class MyCalendarComponent implements OnInit {
     return date < current;
 };
 
+removeEvent(eventToRemove: any) {
+  const index = this.eventSource.indexOf(eventToRemove);
+  if (index !== -1) {
+    this.eventSource.splice(index, 1);
+    console.log('Evento removido com sucesso!');
+    
+    // Passa a posição (index) para deleteData
+    this.calService.deleteData(index);
+  } else {
+    console.error('Evento não encontrado para remoção.');
+  }
+}
+
+openDesmarcar:boolean=true;
+openList(){
+  this.openDesmarcar=false;
+}
 
   createRandomEvents() {
     var events = [];
