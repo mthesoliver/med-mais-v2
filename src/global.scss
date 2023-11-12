@@ -451,15 +451,109 @@ ion-row.row-time {
 }
 
 .list-show {
-    background: #eb445a;
+    background: #961717;
     color: #fff;
     font-size: 20px;
-    text-align: left;
+    line-height: 24px;
+    text-align: center;
     display: flex;
-    flex-direction: column;
-    padding-block: 10px;
+    flex-direction: row;
+    padding-block:10px;
     margin: 6px;
     border-radius: 8px;
+}
+
+.calendar-remove{
+    ion-row {
+        h2 {
+            color: #666;
+            text-transform: capitalize;
+            line-height: 32px;
+            margin-top: 12px;
+        }
+    }
+
+    ion-list.list-md {
+        background: #f4f4f4 !important;
+    }
+
+    ion-col {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    ion-button {
+        display: flex;
+    }
+
+    ion-icon {
+        padding-block: 10px;
+        font-size: 32px !important;
+        margin-bottom: 10px;
+    }
+
+    .today {
+        display: block;
+        margin: auto;
+        --background: transparent;
+        --box-shadow: none;
+        color: #1C4478;
+        border: 1px solid #1C4478;
+        border-radius: 8px;
+        width: 50vw;
+    }
+
+    ion-item {
+        --background: #961717 !important;
+        color: #fff;
+        border-radius: 6px;
+        margin-inline:6px;
+        margin-top: 6px;
+        --border-color:none!important;
+        :nth-child(2) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+        }
+        ::after{
+            content: 'Desmarcar';
+            position: absolute;
+            text-align: center;
+            right: 10px;
+            width: 90px;
+            padding: 6px;
+            padding-top: 8px!important;
+            border-radius: 6px;
+            color: #000;
+            background: #fff;
+        }
+    }
+
+
+    .cancelar{
+        --background: #961717!important;
+    
+        .agendar-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            ion-button {
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        ion-icon[name="calendar-outline"] {
+            width: 24px !important;
+            height: 24px !important;
+            margin-right: 12px;
+            --color: #fff !important;
+        }
+    }
+    
 }
 
 /* FIM AJUSTES CALENDARIO */

@@ -55,9 +55,14 @@
     (onTimeSelected)="onTimeSelected($event)"
     [monthviewDisplayEventTemplate]="template"
     [markDisabled]="markDisabled"
-    [monthviewEventDetailTemplate]="eventTemplate"
     ></calendar>
 
+    <ion-row class="ion-align-items-center justify-center list-show">
+      <ion-col  id="remove">
+        Desmarcar consultas
+      </ion-col>
+    </ion-row> 
+  
   </section>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
@@ -154,33 +159,118 @@
     </ng-template>
   </ion-modal>
 
+  <ion-modal trigger="remove" #modal1 class="calendar-modal calendar-remove">
+    <ng-template>
+
+      <div class="close-modal">
+        <ion-button (click)="modal1.dismiss()">
+          <ion-icon name="close-circle-outline"></ion-icon></ion-button>
+      </div>
+
+      <ion-content class="ion-padding">
+
+        <ion-title class="ion-text-center ion-text-uppercase"> <strong>Desmarcar Consulta</strong> </ion-title>
+        <p class="ion-text-center">Confira a data e horário do exame agendado para efetuar o cancelamento:</p>
+
+
+        <h1 class="time-display"><strong> {{ formattedStart }}  </strong> </h1>
+
+        <ion-row class="row-time">
+          <ion-col (click)="showStart = !showStart">
+            <ion-label>{{ formattedStart }}</ion-label>
+            <ion-text slot="end">{{ formattedStart }}</ion-text>
+          </ion-col>
+
+          <ion-col size="1">
+          <div class="line"></div>
+          </ion-col>
+
+          <ion-col (click)="showEnd = !showEnd">
+            <ion-label>{{ formattedEnd }}</ion-label>
+            <ion-text slot="end">{{ formattedEnd }}</ion-text>
+          </ion-col>
+
+        </ion-row>
+
+        <section class="calendar-base calendar-remove">
+          <calendar
+          [calendarMode]="calendar.mode" 
+          [eventSource]="eventSource"
+          (onEventSelected)="removeEvent($event)"
+          (onTitleChanged)="viewTitle=$event" 
+          (onTimeSelected)="onTimeSelected($event)"
+          [monthviewDisplayEventTemplate]="template"
+          [markDisabled]="markDisabled"
+          >
+          </calendar>
+          <!--
+          <ion-item *ngFor="let event of eventSource">
+            <ion-label>{{ event.title }} do dia: {{ event.startTime.toLocaleDateString()}} <br>
+              as {{ event.startTime.getHours()}} horas</ion-label>
+            <ion-button color="danger" (click)="removeEvent(event)" >Desmarcar</ion-button>
+          </ion-item>
+          -->
+        </section>
+
+        <p class="ion-text-center">Ao cancelar, o exame será retirado do seu calendário podendo ser reagendado novamente dentro de 30 minutos.</p>
+
+        <section class="table-consult">
+          <ion-row>
+            <ion-col size="3">Locação</ion-col>
+            <ion-col size="5" class="aditional-info">Reserva 1 hora <br>Nome do espaço</ion-col>
+            <ion-col size="4"> <strong>R$100,00</strong></ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="3"></ion-col>
+            <ion-col size="4">Total</ion-col>
+            <ion-col size="5" class="total"><strong>R$100,00</strong></ion-col>
+          </ion-row>
+        </section>
+
+      <!-- <ion-button (click)="removeEvents()">Desmarcar Consulta</ion-button> -->
+
+      </ion-content>
+
+      <ion-toolbar class="cancelar">
+        <ion-buttons class="agendar-btn">
+          <ion-button (click)="modal1.dismiss()" strong>
+            <ion-icon name="calendar-outline"></ion-icon>Cancelar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+
+    </ng-template>
+  </ion-modal>
+
   <ng-template #template let-view="view" let-row="row" let-col="col">
     {{ view.dates[row*7+col].label }}
     <div class="indicator-container">
       <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"></div>
     </div>
   </ng-template>
-
-  <ng-template #eventTemplate let-showEventDetail="showEventDetail" let-selectedDate="selectedDate" let-noEventsLabel="noEventsLabel">
-    <ion-list>  
-      <ion-row class="ion-align-items-center justify-center list-show">
-      <ion-col (click)="openList()" size="10">
-        Desmarcar consultas
-      </ion-col>
-      <ion-col size="2" *ngIf="!openDesmarcar">
-        <ion-icon name="chevron-up-outline" color="white" (click)="openDesmarcar=true"></ion-icon>
-      </ion-col>
-    </ion-row> 
-      <div *ngIf="!openDesmarcar">
-      <ion-item *ngFor="let event of eventSource">
-        <ion-label>{{ event.title }} do dia: {{ event.startTime.getDate()}} as {{ event.startTime.getHours()}} horas </ion-label>
-        <ion-button color="danger" (click)="removeEvent(event)" >Desmarcar</ion-button>
-      </ion-item>
-    </div>
-    </ion-list>
-
-    </ng-template>
-
   
 
 </ion-content>
+
+
+<!--
+
+    <ion-list>  
+        <ion-row class="ion-align-items-center justify-center list-show">
+        <ion-col (click)="openList()" size="10">
+          Desmarcar consultas
+        </ion-col>
+        <ion-col size="2" *ngIf="!openDesmarcar">
+          <ion-icon name="chevron-up-outline" color="white" (click)="openDesmarcar=true"></ion-icon>
+        </ion-col>
+      </ion-row> 
+        <div *ngIf="!openDesmarcar">
+        <ion-item *ngFor="let event of eventSource">
+          <ion-label>{{ event.title }} do dia: {{ event.startTime.toLocaleDateString()}} <br>
+            as {{ event.startTime.getHours()}} horas</ion-label>
+          <ion-button color="danger" (click)="removeEvent(event)" >Desmarcar</ion-button>
+        </ion-item>
+      </div>
+      </ion-list>
+
+-->

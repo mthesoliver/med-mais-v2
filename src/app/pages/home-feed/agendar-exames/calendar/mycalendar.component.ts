@@ -43,7 +43,7 @@ export class MyCalendarComponent implements OnInit {
   formattedStart='';
   formattedEnd='';
 
-  constructor(private calService:CalendarioService) {
+  constructor(private calService:CalendarioService, private modalController:ModalController) {
   }
 
   async ngOnInit() {
@@ -139,20 +139,22 @@ export class MyCalendarComponent implements OnInit {
 
 removeEvent(eventToRemove: any) {
   const index = this.eventSource.indexOf(eventToRemove);
-  if (index !== -1) {
+  confirm("Deseja mesmo desmarcar o exame?");
+  if (confirm() === true) {
+    if(index !== -1){
     this.eventSource.splice(index, 1);
     console.log('Evento removido com sucesso!');
-    
-    // Passa a posição (index) para deleteData
+    }else{
+      alert("Exame não cancelado")
+    }
     this.calService.deleteData(index);
   } else {
     console.error('Evento não encontrado para remoção.');
   }
 }
 
-openDesmarcar:boolean=true;
-openList(){
-  this.openDesmarcar=false;
+closeModal(){
+  this.modal.dismiss('Cancelar');
 }
 
   createRandomEvents() {
