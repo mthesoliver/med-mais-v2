@@ -511,8 +511,27 @@ ion-row.row-time {
         margin-inline:6px;
         margin-top: 6px;
         --border-color:none!important;
+        display: flex;
+        flex-wrap:wrap;
+
+        span {
+            display: flex!important;
+            /*margin-top: 20px;*/
+            /*margin-left: -100px!important;*/
+            width: 25%!important;
+        }
+        
+        span:nth-child(1):after {
+            content: ''!important;
+            background-color: transparent!important;
+            width: 0!important;
+            height: 0!important;
+        }
+        
+
         :nth-child(2) {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 70px;

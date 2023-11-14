@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonModal, ModalController } from '@ionic/angular';
+import { format, parseISO } from 'date-fns/fp';
+
 
 @Component({
   selector: 'app-remedios-alarmes',
@@ -7,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemediosAlarmesPage implements OnInit {
 
+  @ViewChild('modal') modal!: IonModal;
+
   alarmes: any[] = [
     { time: '13:00', alarmeAtivado: true, remedio: 'Seu remédio 1' },
     { time: '13:10', alarmeAtivado: false, remedio: 'Seu remédio 2' },
@@ -14,21 +19,22 @@ export class RemediosAlarmesPage implements OnInit {
     { time: '16:10', alarmeAtivado: true, remedio: 'Seu remédio 4' },
   ];
 
+  newAlarm: any = {
+    time:'',
+    alarmeAtivado:'',
+    remedio:''
+  };
+  
 
-  public alertButtons = ['Salvar novo alarme'];
-  public alertInputs = [
-    {
-      placeholder: 'Nome do remédio',
-    },
-    {
-      type: 'time',
-      placeholder: 'Horário',
-    },
-  ];
-
-
+  showStart:boolean=false
+  showEnd:boolean=false
+  formattedStart='';
+  formattedEnd='';
+  
 
   constructor() { }
+
+  
 
   ngOnInit() {
   }
@@ -42,6 +48,24 @@ export class RemediosAlarmesPage implements OnInit {
     });
   }
 
-  
+  startChanged(value:any){
+    this.newAlarm.time = value;    
+    this.formattedStart = format(' HH:mm', parseISO(value));
+  }
 
+  remedioChanged(event: any) {
+    this.newAlarm.remedio = event.target.value;
+  }
+
+  addAlarm(){
+    const toAdd = {
+      time:this.newAlarm.time,
+      alarmeAtivado:true,
+      remedio:this.newAlarm.remedio
+    };
+    console.log(toAdd);
+
+    this.alarmes.push(toAdd);
+    this.modal.dismiss();
+  }
 }

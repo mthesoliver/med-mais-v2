@@ -36,7 +36,60 @@
     </ion-fab-button>
   </ion-fab>
 
-</ion-content>
 
-<ion-alert trigger="novo-alarme" header="Novo alarme" [buttons]="alertButtons" [inputs]="alertInputs" cssClass="modal">
-</ion-alert>
+  <ion-modal trigger="novo-alarme" #modal class="calendar-modal">
+    <ng-template>
+
+      <div class="close-modal">
+        <ion-button (click)="modal.dismiss()">
+          <ion-icon name="close-circle-outline"></ion-icon></ion-button>
+      </div>
+
+      <ion-content class="ion-padding">
+
+        <div class="espec-container">
+          <div class="espec-inner">
+            <h4>{{ formattedStart }}</h4>
+            <span> <strong>Todos os dias</strong></span>
+            <span (ionChange)="remedioChanged(remedio.value)"> <strong>Remédio:</strong> {{ newAlarm.remedio }}</span>
+          </div>
+          <div class="espec-inner">
+            <ion-toggle [(ngModel)]="newAlarm.alarmeAtivado"></ion-toggle>
+          </div>
+        </div>
+
+      <ion-row>
+        <ion-col>
+          <ion-datetime
+          #start
+          [value]="newAlarm.time"
+          presentation="time"
+          (ionChange)="startChanged(start.value)"
+          ></ion-datetime>
+          </ion-col>
+          <ion-col>
+            <ion-label>NOME DO REMEDIO</ion-label>
+            <ion-input #remedio type="text" (ionChange)="remedioChanged($event)"></ion-input>
+
+            <ion-label>QUANTIDADE</ion-label>
+            <ion-input></ion-input>
+
+            <ion-label>REPETIR</ion-label>
+            <ion-input></ion-input>
+            </ion-col>
+        </ion-row>
+
+      </ion-content>
+
+      <ion-toolbar class="agendar">
+        <ion-buttons class="agendar-btn">
+          <ion-button strong (click)="addAlarm()">
+            <ion-icon name="calendar-outline"></ion-icon> Concluir </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+
+    </ng-template>
+  </ion-modal>
+
+
+</ion-content>

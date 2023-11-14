@@ -144,6 +144,7 @@ removeEvent(eventToRemove: any) {
     if(index !== -1){
     this.eventSource.splice(index, 1);
     console.log('Evento removido com sucesso!');
+    alert('Consulta desmarcada com sucesso!');
     }else{
       alert("Exame não cancelado")
     }
