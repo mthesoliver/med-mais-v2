@@ -83,7 +83,7 @@
 
       <ion-toolbar class="agendar">
         <ion-buttons class="agendar-btn">
-          <ion-button strong (click)="addAlarm()">
+          <ion-button strong (click)="addAlarm()" [disabled]="!newAlarm.time">
             <ion-icon name="calendar-outline"></ion-icon> Concluir </ion-button>
         </ion-buttons>
       </ion-toolbar>
