@@ -12,13 +12,16 @@ export class RemediosAlarmesPage implements OnInit {
 
   @ViewChild('modal') modal!: IonModal;
 
+  //I have this array of objects and i want the time property converted to Date
+
   alarmes: any[] = [
-    { time: '13:00', alarmeAtivado: true, remedio: 'Seu remédio 1' },
-    { time: '13:10', alarmeAtivado: false, remedio: 'Seu remédio 2' },
-    { time: '16:00', alarmeAtivado: false, remedio: 'Seu remédio 3' },
-    { time: '16:10', alarmeAtivado: true, remedio: 'Seu remédio 4' },
+    { time: '2021-05-21T15:00:00Z', alarmeAtivado: true, remedio: 'Seu remédio 1' },
+    { time: '2021-05-21T16:00:00Z', alarmeAtivado: false, remedio: 'Seu remédio 2' },
+    { time: '2021-05-21T16:10:00Z', alarmeAtivado: false, remedio: 'Seu remédio 3' },
+    { time: '2021-05-21T12:00:00Z', alarmeAtivado: true, remedio: 'Seu remédio 4' },
   ];
 
+  
   newAlarm: any = {
     time:'',
     alarmeAtivado:'',
@@ -33,8 +36,6 @@ export class RemediosAlarmesPage implements OnInit {
   
 
   constructor() { }
-
-  
 
   ngOnInit() {
   }
