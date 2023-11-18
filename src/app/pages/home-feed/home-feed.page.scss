@@ -156,3 +156,19 @@ ion-back-button {
         font-size: 16px;
     }
 }
+
+.top-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-nav ion-button{
+    height: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #1C4478;
+    --border-radius: 20px;
+    --background: #fff;
+}

@@ -15,10 +15,10 @@ export class RemediosAlarmesPage implements OnInit {
   //I have this array of objects and i want the time property converted to Date
 
   alarmes: any[] = [
-    { time: '2021-05-21T15:00:00Z', alarmeAtivado: true, remedio: 'Seu remédio 1' },
-    { time: '2021-05-21T16:00:00Z', alarmeAtivado: false, remedio: 'Seu remédio 2' },
-    { time: '2021-05-21T16:10:00Z', alarmeAtivado: false, remedio: 'Seu remédio 3' },
-    { time: '2021-05-21T12:00:00Z', alarmeAtivado: true, remedio: 'Seu remédio 4' },
+    { time: '2021-05-21T15:00:00Z', alarmeAtivado: true, remedio: 'Escitalopram', vezes:'2 vezes' },
+    { time: '2021-05-21T16:00:00Z', alarmeAtivado: false, remedio: 'Losartana',  vezes:'2 vezes' },
+    { time: '2021-05-21T16:10:00Z', alarmeAtivado: false, remedio: 'Glifage',  vezes:'2 vezes' },
+    { time: '2021-05-21T20:00:00Z', alarmeAtivado: true, remedio: 'Alprazolam', vezes:'2 vezes'  },
   ];
 
   
@@ -27,7 +27,6 @@ export class RemediosAlarmesPage implements OnInit {
     alarmeAtivado:'',
     remedio:''
   };
-  
 
   showStart:boolean=false
   showEnd:boolean=false
@@ -58,11 +57,16 @@ export class RemediosAlarmesPage implements OnInit {
     this.newAlarm.remedio = event.target.value;
   }
 
+  vezesChanged(event: any) {
+    this.newAlarm.vezes = event.target.value;
+  }
+
   addAlarm(){
     const toAdd = {
       time:this.newAlarm.time,
       alarmeAtivado:true,
-      remedio:this.newAlarm.remedio
+      remedio:this.newAlarm.remedio,
+      vezes: this.newAlarm.vezes
     };
     console.log(toAdd);
 

@@ -21,7 +21,7 @@
       <div class="espec-inner">
         <h4>{{ alarme.time | date: 'HH:mm'}}</h4>
         <span> <strong>Todos os dias</strong></span>
-        <span> <strong>Remédio:</strong> {{ alarme.remedio }}</span>
+        <span> <strong>Remédio:</strong> {{ alarme.remedio }} - {{ alarme.vezes }}</span>
       </div>
       <div class="espec-inner">
         <ion-toggle [(ngModel)]="alarme.alarmeAtivado"></ion-toggle>
@@ -51,7 +51,7 @@
           <div class="espec-inner">
             <h4>{{ formattedStart }}</h4>
             <span> <strong>Todos os dias</strong></span>
-            <span (ionChange)="remedioChanged(remedio.value)"> <strong>Remédio:</strong> {{ newAlarm.remedio }}</span>
+            <span (ionChange)="remedioChanged(remedio.value)"> <strong>Remédio:</strong> {{ newAlarm.remedio }}  - {{  newAlarm.vezes }}</span>
           </div>
           <div class="espec-inner">
             <ion-toggle [(ngModel)]="newAlarm.alarmeAtivado"></ion-toggle>
@@ -72,7 +72,7 @@
             <ion-input #remedio type="text" (ionChange)="remedioChanged($event)"></ion-input>
 
             <ion-label>QUANTIDADE</ion-label>
-            <ion-input></ion-input>
+            <ion-input (ionChange)="vezesChanged($event)"></ion-input>
 
             <ion-label>REPETIR</ion-label>
             <ion-input></ion-input>

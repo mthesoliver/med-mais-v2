@@ -6,7 +6,6 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { EventosFavoritosPageRoutingModule } from 'src/app/pages/home-feed/eventos-favoritos/eventos-favoritos-routing.module';
-import { AvaliacaoModalService } from 'src/app/services/avaliacao-modal.service';
 
 @Component({
   selector: 'app-avaliacao',
@@ -34,7 +33,7 @@ export class AvaliacaoComponent  implements OnInit {
     .fill([])
     .map(() => Array(5).fill({ isActive: false }));
 
-  constructor(private route:Router, private avaliacaoModalService: AvaliacaoModalService, private cdr: ChangeDetectorRef) { }
+  constructor(private route:Router) { }
 
   ngOnInit() {
   }
@@ -58,7 +57,7 @@ export class AvaliacaoComponent  implements OnInit {
   }
 
   onSubmit(){
-    this.avaliacaoModalService.dismiss();
+    this.route.navigate(['/tabs/home-feed']);
   }
 
 }
