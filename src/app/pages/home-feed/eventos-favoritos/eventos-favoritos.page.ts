@@ -17,6 +17,7 @@ export class EventosFavoritosPage implements OnInit {
       this.ngOnInit();
       event.target.complete();
     }, 1000);
+    
   }
 
 

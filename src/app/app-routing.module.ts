@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth-guard.guard';
 import { MyCalendarComponent } from './pages/home-feed/agendar-exames/calendar/mycalendar.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { AvaliacaoComponent } from './components/avaliacao/avaliacao.component';
 
 const routes: Routes = [
   {
@@ -33,12 +34,12 @@ const routes: Routes = [
   {
     path: 'home-feed',
     loadChildren: () => import('./pages/home-feed/home-feed.module').then(m => m.HomeFeedPageModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
     
   },
   {
@@ -48,6 +49,11 @@ const routes: Routes = [
   {
     path: 'reset-password',
     component: ResetPasswordComponent
+  },
+  
+  {
+    path: 'avaliacao',
+    component: AvaliacaoComponent
   },
 ];
 

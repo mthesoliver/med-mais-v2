@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-toolbar>
+  <ion-label class="page-tittle">
+    Avaliação
+  </ion-label>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true" class="header-bg">
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" [pullFactor]=".25" [pullMin]="100" [pullMax]="100">
+    <ion-refresher-content pullingIcon="" refreshingSpinner="circles" refreshingText="Atualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <section>
+
+    <div *ngFor="let avalia of avaliacoes; let avaliaIndex = index" class="avalia-container">
+      <div class="avalia-inner">
+        <h4>{{ avalia.titulo }}</h4>
+      </div>
+      <div class="avalia-emotes">
+        <div
+          *ngFor="let emote of emotes[avaliaIndex]; let emoteIndex = index"
+          id="emote-{{ emoteIndex + 1 }}"
+          [class.is-active]="emote.isActive"
+          (click)="toggleEmoteActivation(avaliaIndex, emoteIndex)"
+        ></div>
+      </div>
+    </div>
+
+    <mat-form-field class="avalia-form" appearance="outline">
+      <textarea matInput placeholder="Nos conte o que dificultou sua experiência:"></textarea>
+    </mat-form-field>
+    <ion-button class="avalia-form button-submit" (click)="onSubmit()">
+      Enviar Avaliação
+    </ion-button>
+    
+  </section>
+
+</ion-content>

@@ -23,6 +23,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AuthenticationService } from './services/authentication.service';
 import { NgCalendarModule  } from 'ionic6-calendar';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { AvaliacaoModalService } from './services/avaliacao-modal.service';
 
 registerLocaleData(localePt, 'pt'); // Registre o locale
 
@@ -45,6 +46,7 @@ registerLocaleData(localePt, 'pt'); // Registre o locale
   ],
   providers: [
     AuthenticationService,
+    AvaliacaoModalService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
     { provide: LOCALE_ID, useValue: 'pt' }, // Defina o locale como 'pt' para português
 ],

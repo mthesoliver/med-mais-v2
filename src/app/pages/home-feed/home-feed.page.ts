@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { getAuth } from '@angular/fire/auth';
+import { AvaliacaoModalService } from 'src/app/services/avaliacao-modal.service';
 
 @Component({
   selector: 'app-home-feed',
@@ -12,7 +13,7 @@ export class HomeFeedPage implements OnInit {
   auth = getAuth();
   user = this.auth.currentUser
 
-  constructor(private route: Router, public authService:AuthenticationService) { 
+  constructor(private route: Router, public authService:AuthenticationService, private avaliacaoModalService: AvaliacaoModalService, private cdr: ChangeDetectorRef) { 
     
   }
 
@@ -32,6 +33,13 @@ export class HomeFeedPage implements OnInit {
       this.ngOnInit();
       event.target.complete();
     }, 1000);
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.avaliacaoModalService.exibirAvaliacaoModal();
+      this.cdr.detectChanges(); // Detecção de mudanças para evitar a ExpressionChangedAfterItHasBeenCheckedError
+    }, 5000);
   }
 
 }
