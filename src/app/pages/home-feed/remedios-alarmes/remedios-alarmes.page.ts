@@ -25,7 +25,8 @@ export class RemediosAlarmesPage implements OnInit {
   newAlarm: any = {
     time:'',
     alarmeAtivado:'',
-    remedio:''
+    remedio:'',
+    vezes:''
   };
 
   showStart:boolean=false
@@ -34,7 +35,7 @@ export class RemediosAlarmesPage implements OnInit {
   formattedEnd='';
   
 
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
@@ -73,4 +74,22 @@ export class RemediosAlarmesPage implements OnInit {
     this.alarmes.push(toAdd);
     this.modal.dismiss();
   }
+
+  selectedAlarm: any = null;
+
+  showAlarm(alarme: any){
+    console.log('Alarm event triggered: ', alarme);
+    this.selectedAlarm = alarme;
+}
+
+removeAlarm(alarme: any) {
+  // Remove o alarme da lista
+  const index = this.alarmes.findIndex(a => a === alarme);
+  if (index !== -1) {
+    this.alarmes.splice(index, 1);
+  }
+
+  // Fecha o modal
+  this.selectedAlarm = null;
+}
 }

@@ -17,8 +17,8 @@
 
   <section>
 
-    <div class="espec-container" *ngFor="let alarme of getOrderedDivs()">
-      <div class="espec-inner">
+    <div  class="espec-container" *ngFor="let alarme of getOrderedDivs()">
+      <div class="espec-inner" (click)="showAlarm(alarme)">
         <h4>{{ alarme.time | date: 'HH:mm'}}</h4>
         <span> <strong>Todos os dias</strong></span>
         <span> <strong>Remédio:</strong> {{ alarme.remedio }} - {{ alarme.vezes }}</span>
@@ -91,5 +91,28 @@
     </ng-template>
   </ion-modal>
 
+  
+  <ng-container *ngIf="selectedAlarm">
+    <div class="modal-overlay">
+      <div class="close-modal">
+        <ion-button (click)="selectedAlarm = null">
+          <ion-icon name="close-circle-outline"></ion-icon></ion-button>
+      </div>
+      <div class="modal">
+        <h2>Detalhes do Alarme</h2>
+        <p>Remédio: {{ selectedAlarm.remedio }}</p>
+        <p>Horário: {{ selectedAlarm.time | date: 'HH:mm' }}</p>
+        <!-- Adicione mais detalhes conforme necessário -->
+        <div class="espec-inner">
+          <ion-toggle [(ngModel)]="selectedAlarm.alarmeAtivado"></ion-toggle>
+        </div>
+        <!-- Botão para fechar o modal -->
+        <div class="footer-button">
+        <ion-button (click)="removeAlarm(selectedAlarm)">Remover alarme</ion-button>
+        <ion-button class="confirm" (click)="selectedAlarm = null">Confirmar</ion-button>
+      </div>
+      </div>
+    </div>
+  </ng-container>
 
 </ion-content>
