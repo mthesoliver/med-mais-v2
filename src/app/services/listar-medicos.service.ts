@@ -20,10 +20,10 @@ export class ListarMedicosService {
     this.loadingData.next(true);
     return this.http.get<Medicos[]>(this.springAPI + a).pipe(first(),
       catchError((error: any) => {
-        // Trate o erro aqui, você pode exibir uma mensagem de erro ou fazer o que for necessário.
+        // Trate o erro aqui, você pode exibir uma mensagem de erro ou fazer o que for necessário. 
         console.error('Erro ao buscar dados da API:', error);
         this.mostrarAlerta('Erro', 'Ocorreu um erro no nosso servidor. Tente novamente mais tarde.');
-        // Aqui você pode exibir uma mensagem de erro ou lançar um erro personalizado.
+        // Aqui você pode exibir uma mensagem de erro ou lançar um erro personalizado. 
         return throwError('Erro ao buscar dados da API');
       }),
       finalize(() => this.loadingData.next(false)));
@@ -41,10 +41,10 @@ export class ListarMedicosService {
       return medicos.slice(0, 3)
     }),
       catchError((error: any) => {
-        // Trate o erro aqui, você pode exibir uma mensagem de erro ou fazer o que for necessário.
+        // Trate o erro aqui, você pode exibir uma mensagem de erro ou fazer o que for necessário. 
         console.error('Erro ao buscar dados da API:', error);
         this.mostrarAlerta('Erro', 'Ocorreu um erro no nosso servidor. Tente novamente mais tarde.');
-        // Aqui você pode exibir uma mensagem de erro ou lançar um erro personalizado.
+        // Aqui você pode exibir uma mensagem de erro ou lançar um erro personalizado. 
         return throwError('Erro ao buscar dados da API');
       }),
       finalize(() => this.loadingData.next(true)));

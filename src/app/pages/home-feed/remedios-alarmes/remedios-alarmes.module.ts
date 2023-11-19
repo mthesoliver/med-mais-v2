@@ -8,6 +8,7 @@ import { RemediosAlarmesPageRoutingModule } from './remedios-alarmes-routing.mod
 
 import { RemediosAlarmesPage } from './remedios-alarmes.page';
 
+
 @NgModule({
   imports: [
     CommonModule,

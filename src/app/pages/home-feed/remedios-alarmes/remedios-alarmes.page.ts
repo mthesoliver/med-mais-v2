@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal, ModalController } from '@ionic/angular';
 import { format, parseISO } from 'date-fns/fp';
+import { AlarmEvent, AlarmService } from 'src/app/services/alarm.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class RemediosAlarmesPage implements OnInit {
     { time: '2021-05-21T20:00:00Z', alarmeAtivado: true, remedio: 'Alprazolam', vezes:'2 vezes'  },
   ];
 
+  selectedAlarm: any = null;
   
   newAlarm: any = {
     time:'',
@@ -35,9 +37,12 @@ export class RemediosAlarmesPage implements OnInit {
   formattedEnd='';
   
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController, private alarmService: AlarmService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    //this.addAlarmDataToStorage();
+    //this.alarmService.delete();
+    this.alarmes = await this.alarmService.getData();
   }
 
   getOrderedDivs() {
@@ -63,7 +68,7 @@ export class RemediosAlarmesPage implements OnInit {
   }
 
   addAlarm(){
-    const toAdd = {
+    const toAdd: AlarmEvent = {
       time:this.newAlarm.time,
       alarmeAtivado:true,
       remedio:this.newAlarm.remedio,
@@ -71,25 +76,49 @@ export class RemediosAlarmesPage implements OnInit {
     };
     console.log(toAdd);
 
-    this.alarmes.push(toAdd);
+    this.alarmes.push(toAdd);;
+    this.alarmService.addData(toAdd);
+
     this.modal.dismiss();
   }
-
-  selectedAlarm: any = null;
 
   showAlarm(alarme: any){
     console.log('Alarm event triggered: ', alarme);
     this.selectedAlarm = alarme;
 }
 
-removeAlarm(alarme: any) {
-  // Remove o alarme da lista
-  const index = this.alarmes.findIndex(a => a === alarme);
-  if (index !== -1) {
+removeAlarm(eventToRemove: any) {
+  const index = this.alarmes.indexOf(eventToRemove);
+  confirm("Deseja mesmo remover este alarme?");
+  if (confirm() === true) {
+    if(index !== -1){
     this.alarmes.splice(index, 1);
+    console.log('Alarme removido com sucesso!');
+    alert('Alarme removido com sucesso!');
+    }else{
+      alert("Alarme não removido")
+    }
+    this.alarmService.deleteData(index);
+  } else {
+    console.error('Alarme não encontrado para remoção.');
   }
-
-  // Fecha o modal
   this.selectedAlarm = null;
 }
+
+
+async addAlarmDataToStorage() {
+  for (const alarme of this.alarmes) {
+    const alarmEvent: AlarmEvent = {
+      time: new Date(alarme.time),
+      alarmeAtivado: alarme.alarmeAtivado,
+      remedio: alarme.remedio,
+      vezes: alarme.vezes
+    };
+  
+    // Adiciona cada evento ao Ionic Storage
+    await this.alarmService.addData(alarmEvent);
+  }
+}
+
+
 }
