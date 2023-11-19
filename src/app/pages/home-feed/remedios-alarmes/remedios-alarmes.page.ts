@@ -40,7 +40,7 @@ export class RemediosAlarmesPage implements OnInit {
   constructor(private modalCtrl: ModalController, private alarmService: AlarmService) { }
 
   async ngOnInit() {
-    this.addAlarmDataToStorage();
+    //this.addAlarmDataToStorage();
     //this.alarmService.delete();
     this.alarmes = await this.alarmService.getData();
   }

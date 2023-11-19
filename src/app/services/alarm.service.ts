@@ -29,7 +29,10 @@ export class AlarmService {
     if (!this.isStorageReady) {
       await this.init();
     }
-    return (await this.storage.get(STORAGE_KEY)) || [];
+    return (await this.storage.get(STORAGE_KEY)) || [ { time: '2021-05-21T15:00:00Z', alarmeAtivado: true, remedio: 'Escitalopram', vezes:'2 vezes' },
+    { time: '2021-05-21T16:00:00Z', alarmeAtivado: false, remedio: 'Losartana',  vezes:'2 vezes' },
+    { time: '2021-05-21T16:10:00Z', alarmeAtivado: false, remedio: 'Glifage',  vezes:'2 vezes' },
+    { time: '2021-05-21T20:00:00Z', alarmeAtivado: true, remedio: 'Alprazolam', vezes:'2 vezes'  },];
   }
 
   async addData(item: AlarmEvent) {
