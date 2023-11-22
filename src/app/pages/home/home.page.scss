@@ -46,6 +46,7 @@ figure img{
 }
 
 .btn-cadastrar{
+    font-size: 16px;
     margin:12px auto;
     height: 2em;
     width: 80vw;
@@ -56,4 +57,8 @@ figure img{
 .btn-cadastrar span{
     font-size: 14px;
     font-weight: 400;
+}
+
+ion-button.btn-cadastrar{
+    text-transform: inherit!important;
 }
