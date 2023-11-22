@@ -18,7 +18,7 @@ export class CadastrarPage implements OnInit {
   }
 
   onClick(){
-    this.route.navigate(['/add-pessoas'])
+    this.route.navigate(['/login'])
     }
   }
 
