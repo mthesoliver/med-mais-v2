@@ -80,11 +80,11 @@
           <ion-icon name="close-circle-outline"></ion-icon></ion-button>
       </div>
 
-      <ion-content class="ion-padding">
+      <ion-content class="ion-padding" >
 
-        <ion-title class="ion-text-center ion-text-uppercase"> <strong>Nova Consulta</strong> </ion-title>
+        <ion-title class="ion-text-center ion-text-uppercase"> <strong>Nova Consulta</strong></ion-title>
+        <p class="ion-text-center">Com o médico: {{ selectedMedico?.nomeMedico }}</p>
         <p class="ion-text-center">Seu exame está disponível para a seguinte data e horário:</p>
-
 
         <h1 class="time-display"><strong> {{ formattedStart }}  </strong> </h1>
 
@@ -144,8 +144,6 @@
             <ion-col size="5" class="total"><strong>R$100,00</strong></ion-col>
           </ion-row>
         </section>
-
-      <!-- <ion-button (click)="removeEvents()">Desmarcar Consulta</ion-button> -->
 
       </ion-content>
 
@@ -227,8 +225,6 @@
             <ion-col size="5" class="total"><strong>R$100,00</strong></ion-col>
           </ion-row>
         </section>
-
-      <!-- <ion-button (click)="removeEvents()">Desmarcar Consulta</ion-button> -->
 
       </ion-content>
 

@@ -22,6 +22,7 @@ import { MyCalendarComponent } from '../calendar/mycalendar.component';
 })
 export class OncologistasComponent  implements OnInit {
 
+  selectedMedico!: Medicos;
   loadingData: boolean = false;
   medicos: Observable<Medicos[]>;
   displayedColumns= ['nomeMedico', 'actions'];
@@ -49,8 +50,15 @@ navigateCalendar() {
 
 isModalOpen = false;
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+setOpen(isOpen: boolean, medico: Medicos | null = null) {
+  this.isModalOpen = isOpen;
+  if (medico) {
+    this.selectedMedico = medico;
   }
+}
+
+agendarMedico(medico: Medicos) {
+  this.setOpen(true, medico);
+}
 
 }

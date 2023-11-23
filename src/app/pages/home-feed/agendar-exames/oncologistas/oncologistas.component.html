@@ -36,7 +36,7 @@
       <ng-container matColumnDef="actions">
         <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
         <mat-cell mat-cell *matCellDef="let medicos">
-          <ion-button (click)="setOpen(true)">Agendar</ion-button>
+          <ion-button (click)="agendarMedico(medicos)">Agendar</ion-button>
         </mat-cell>
       </ng-container>
 
@@ -51,6 +51,6 @@
 
 <ng-template [ngIf]="isModalOpen">
   <ion-content>
-  <app-calendar></app-calendar>
+    <app-calendar [selectedMedico]="selectedMedico"></app-calendar>
 </ion-content>
 </ng-template>

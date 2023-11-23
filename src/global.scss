@@ -534,8 +534,7 @@ ion-row.row-time {
 
         :nth-child(2) {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             height: 70px;
         }
@@ -545,6 +544,7 @@ ion-row.row-time {
             text-align: center;
             right: 10px;
             width: 90px;
+            top:16px;
             padding: 6px;
             padding-top: 8px!important;
             border-radius: 6px;
@@ -574,6 +574,32 @@ ion-row.row-time {
             margin-right: 12px;
             --color: #fff !important;
         }
+    }
+
+    ion-list{
+        display: flex!important;
+        flex-direction: column!important;
+        width: 100%!important;
+    }
+    
+    ion-item{
+        display: block!important;
+    }
+    ion-item span{
+        display: flex!important;
+        flex-direction: column!important;
+        width: 50%!important;
+    }
+    
+    ion-item span:nth-child(1){
+        width:50%!important;
+        position: absolute;
+        top: 20px;
+    }
+    
+    ion-item span:nth-child(2){
+        width:60%!important;
+        margin-top: 32px
     }
     
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Medicos } from '../models/medicos';
-import { BehaviorSubject, catchError, finalize, first, map, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, finalize, first, map, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { AlertController } from '@ionic/angular';
 
@@ -24,6 +24,17 @@ export class ListarMedicosService {
         console.error('Erro ao buscar dados da API:', error);
         this.mostrarAlerta('Erro', 'Ocorreu um erro no nosso servidor. Tente novamente mais tarde.');
         // Aqui você pode exibir uma mensagem de erro ou lançar um erro personalizado. 
+        return throwError('Erro ao buscar dados da API');
+      }),
+      finalize(() => this.loadingData.next(false)));
+  }
+
+  buscarMedicoPorId(id: number): Observable<Medicos> {
+    this.loadingData.next(true);
+    return this.http.get<Medicos>(`${this.springAPI}/${id}`).pipe(
+      catchError((error: any) => {
+        console.error('Erro ao buscar dados da API:', error);
+        this.mostrarAlerta('Erro', 'Ocorreu um erro no nosso servidor. Tente novamente mais tarde.');
         return throwError('Erro ao buscar dados da API');
       }),
       finalize(() => this.loadingData.next(false)));

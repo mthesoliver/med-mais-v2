@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
-import { IonModal, IonicModule, ModalController } from '@ionic/angular';
+import { IonModal, IonicModule } from '@ionic/angular';
 import { format, parseISO } from 'date-fns/fp';
 import { CalendarMode, NgCalendarModule , CalendarComponent} from 'ionic6-calendar';
+import { Observable } from 'rxjs';
+import { Medicos } from 'src/app/models/medicos';
 import { CalEvent, CalendarioService } from 'src/app/services/calendario.service';
+import { ListarMedicosService } from 'src/app/services/listar-medicos.service';
 
 @Component({
   selector: 'app-calendar',
@@ -22,6 +25,8 @@ import { CalEvent, CalendarioService } from 'src/app/services/calendario.service
 })
 export class MyCalendarComponent implements OnInit {
   
+  @Input() selectedMedico: Medicos | null = null;
+
   calendar = {
     mode:'month' as CalendarMode,
     currentDate: new Date(),
@@ -35,7 +40,7 @@ export class MyCalendarComponent implements OnInit {
   newEvent: any = {
     title:'Consulta',
     startTime:'',
-    endTime:''
+    endTime:'',
   };
   
   showStart:boolean=false
@@ -43,8 +48,9 @@ export class MyCalendarComponent implements OnInit {
   formattedStart='';
   formattedEnd='';
 
-  constructor(private calService:CalendarioService, private modalController:ModalController) {
+  constructor(private calService:CalendarioService, private medServ: ListarMedicosService) {
   }
+
 
   async ngOnInit() {
     this.eventSource = await this.calService.getData();
@@ -74,7 +80,7 @@ export class MyCalendarComponent implements OnInit {
 
   addEvent(){
     const toAdd: CalEvent = {
-      title: this.newEvent.title,
+      title: this.newEvent.title + ' ' + this.selectedMedico?.nomeMedico,
       startTime: new Date(this.newEvent.startTime),
       endTime: new Date(this.newEvent.endTime),
       allDay: false
@@ -157,67 +163,5 @@ removeEvent(eventToRemove: any) {
 closeModal(){
   this.modal.dismiss('Cancelar');
 }
-
-  createRandomEvents() {
-    var events = [];
-    for (var i = 0; i < 40; i += 1) {
-      var date = new Date();
-      var eventType = Math.floor(Math.random() * 2);
-      var startDay = Math.floor(Math.random() * 90) - 45;
-      var endDay = Math.floor(Math.random() * 1) + startDay;
-      var startTime;
-      var endTime;
-      if (eventType === 0) {
-        startTime = new Date(
-          Date.UTC(
-            date.getUTCFullYear(),
-            date.getUTCMonth(),
-            date.getUTCDate() + startDay
-          )
-        );
-        if (endDay === startDay) {
-          endDay += 1;
-        }
-        endTime = new Date(
-          Date.UTC(
-            date.getUTCFullYear(),
-            date.getUTCMonth(),
-            date.getUTCDate() + endDay
-          )
-        );
-        events.push({
-          title: 'Reservado - ' + i,
-          startTime: startTime,
-          endTime: endTime,
-          allDay: false,
-        });
-      } else {
-        var startMinute = Math.floor(Math.random() * 24 * 60);
-        var endMinute = Math.floor(Math.random() * 60) + startMinute;
-        startTime = new Date(
-          date.getFullYear(),
-          date.getMonth(),
-          date.getDate() + startDay,
-          0,
-          date.getMinutes() + startMinute
-        );
-        endTime = new Date(
-          date.getFullYear(),
-          date.getMonth(),
-          date.getDate() + endDay,
-          0,
-          date.getMinutes() + endMinute
-        );
-        events.push({
-          title: 'Consulta - ' + i,
-          startTime: startTime,
-          endTime: endTime,
-          allDay: false,
-        });
-      }
-    }
-    this.eventSource = events;
-  }
-
 }
 
